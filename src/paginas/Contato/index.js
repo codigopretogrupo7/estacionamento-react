@@ -1,7 +1,7 @@
 import React from 'react';
 
-import Topo from '../../componentes/Topo';
-import Rodape from '../../componentes/Rodape';
+// import Topo from '../../componentes/Topo';
+// import Rodape from '../../componentes/Rodape';
 import Mapa from '../../componentes/Mapa';
 
 import './estilo.css';
@@ -9,7 +9,6 @@ import './estilo.css';
 const Contato = () => {
   return (
     <section>
-      <Topo />
 
       <div className="contato-container">
         <div className="contato-mapa">
@@ -50,7 +49,6 @@ const Contato = () => {
 
       </div>
 
-      <Rodape />
     </section>
   );
 }

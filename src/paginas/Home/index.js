@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-import Topo from '../../componentes/Topo';
-import Rodape from '../../componentes/Rodape';
+// import Topo from '../../componentes/Topo';
+// import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
 
 const Home = (  ) => {
   return (
     <section>
-      <Topo />
 
       <div className="home-apresentacao">
         <div className="limitar-container">
@@ -90,7 +89,6 @@ const Home = (  ) => {
         <Link to="/contato" className="btn-contato">Entrar em contato</Link>
 
       </div>
-      <Rodape />
     </section>
   );
 }

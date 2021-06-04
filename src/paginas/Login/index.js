@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
 
-import Topo from '../../componentes/Topo';
-import Rodape from '../../componentes/Rodape';
+// import Topo from '../../componentes/Topo';
+// import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
 
@@ -17,7 +17,6 @@ const Login = () => {
 
     return (
         <div>
-        <Topo/>
             <div className="Login">
                 <div className ="Login-right">
                     <h1> Acessar </h1>
@@ -76,7 +75,6 @@ const Login = () => {
                 </div>
 
             </div>
-            <Rodape/>
         </div>
     )
 }
