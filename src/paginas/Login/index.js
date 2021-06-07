@@ -1,19 +1,18 @@
-import React,{useState} from 'react';
+import React from 'react';
+import { Link } from 'react-router-dom';
 
-// import Topo from '../../componentes/Topo';
-// import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
 
 const Login = () => {
-    const[email,setEmail] = useState("")
-    const[password, setPassword] = useState("");
-    const[show, setShow] =useState(false)
+    // const[email,setEmail] = useState("")
+    // const[password, setPassword] = useState("");
+    // const[show, setShow] =useState(false)
 
-    const handleClick = (e) => {
-        e.preventDefault()
-        setPassword(!show);
-    }
+    // const handleClick = (e) => {
+    //     e.preventDefault()
+    //     setPassword(!show);
+    // }
 
     return (
         <div>
@@ -25,17 +24,17 @@ const Login = () => {
                         <input
                             type="email"
                             placeholder="Digite um email"
-                            value={email}
-                            onChange={e => setEmail(e.target.value)}
+                            // value={email}
+                            // onChange={e => setEmail(e.target.value)}
                         />
                     </div>
                     
                     <div className="Login-loginInputPassword">
                         <input
                             placeholder="Digite sua senha"
-                            type={show ? "text" : "password"}
-                            value={password}
-                            onChange={e => setPassword=(e.target.value)}
+                            // type={show ? "text" : "password"}
+                            // value={password}
+                            // onChange={e => setPassword=(e.target.value)}
                         />
                         {/* escolher biblioteca de icones antes de liberar.
                          <div className="login-eye">
@@ -66,8 +65,15 @@ const Login = () => {
                         Entrar com Google
                     </button>
                     <h4>Ainda não tem uma conta?</h4>
-                    <button type="submit" id="cadastrar-se">
-                        Cadastra-se
+                    <button id="cadastrar-se">
+                        <Link 
+                            to='/Cadastro' 
+                            style={
+                                {color:'white',textDecoration:'none'}
+                            }
+                        > 
+                            Cadastra-se 
+                        </Link>
                     </button>
 
 
