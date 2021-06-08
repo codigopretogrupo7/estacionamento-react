@@ -16,11 +16,74 @@ export default function VagasEstacionamento(){
     
   },[])
   
-  async function carregaVagas(){
-    const resposta = await fetch('http://localhost/vagas.php')
-    const dados = await resposta.json()
-    await setVagas(dados.Vagas)  
+  function carregaVagas(){
     
+    let Vagas = [  
+      {
+        "idVaga":1,
+        "idEstacionamento":1,
+        "idOcupante":"",
+        "numeroVaga":"A1",
+        "vazia":true,
+        "nomeOcupante":"",
+        "placaOcupante":"",
+        "modeloOcupante":""
+      },
+      {
+        "idVaga":2,
+        "idEstacionamento":1,
+        "idOcupante":1,
+        "numeroVaga":"A2",
+        "vazia":false,
+        "nomeOcupante":"Lucas Damasceno",
+        "placaOcupante":"ABC-0000",
+        "modeloOcupante":"BMW"
+      },
+      {
+        "idVaga":3,
+        "idEstacionamento":1,
+        "idOcupante":2,
+        "numeroVaga":"A3",
+        "vazia":false,
+        "nomeOcupante":"Joyce Andrade",
+        "placaOcupante":"DEF-1111",
+        "modeloOcupante":"NOVO UNO"
+      },
+      {
+        "idVaga":4,
+        "idEstacionamento":1,
+        "idOcupante":"",
+        "numeroVaga":"A4",
+        "vazia":true,
+        "nomeOcupante":"",
+        "placaOcupante":"",
+        "modeloOcupante":""
+      },
+      {
+        "idVaga":5,
+        "idEstacionamento":1,
+        "idOcupante":"",
+        "numeroVaga":"A5",
+        "vazia":true,
+        "nomeOcupante":"",
+        "placaOcupante":"",
+        "modeloOcupante":""
+      },
+      {
+        "idVaga":6,
+        "idEstacionamento":1,
+        "idOcupante":3,
+        "numeroVaga":"A6",
+        "vazia":false,
+        "nomeOcupante":"Boni",
+        "placaOcupante":"auau-1111",
+        "modeloOcupante":"Carro do debiloide"
+      }
+    
+    ]
+
+    setVagas(Vagas)  
+
     setPausa(true)
   }
   
@@ -28,7 +91,7 @@ export default function VagasEstacionamento(){
     let vagaocupadas = 0
     let nomevagasocupadas = []
     for( let i = 0 ; i < vagas.length ; i++ ){
-      if(vagas[i].vazia === true){
+      if(vagas[i].vazia === false){
         vagaocupadas+=1
       }else{
         nomevagasocupadas.push(vagas[i].nomeOcupante)
