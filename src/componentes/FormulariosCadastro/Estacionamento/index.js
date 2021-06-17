@@ -1,4 +1,4 @@
-import React,{ useState } from 'react'
+/*import React,{ useState } from 'react'
 import { 
   Container, 
   Button, 
@@ -99,7 +99,7 @@ export default function CadastroEstacionamento(){
       <form  onSubmit={enviarFormulario}>
         <Grid container spacing={6}>  
 
-          {/* nome do estacionamento */}
+          {/* nome do estacionamento }
           <> 
             <Grid item xs={12} md={12}>
               <FormControl fullWidth >
@@ -113,7 +113,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
 
-          {/* Endereço do estacionamento */}
+          {/* Endereço do estacionamento }
           <>
             <Grid item xs={12} md={4} >
               <FormControl fullWidth >
@@ -187,7 +187,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
 
-          {/* Horarios, modelos e numero de vagas */}
+          {/* Horarios, modelos e numero de vagas }
           <>
             <Grid item xs={12} md={3} >
               <FormControl fullWidth >
@@ -236,7 +236,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
 
-          {/* Valores */}
+          {/* Valores }
           <>
             <Grid item xs={12} md={4}  >
               <FormControl fullWidth >
@@ -270,7 +270,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
 
-          {/* Email senha */}
+          {/* Email senha }
           <>
             <Grid item xs={12} md={12} >
               <Box mt={1} ml={2} mb={-2}>
@@ -338,7 +338,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
           
-          {/* Botao */}
+          {/* Botao }
           <>
             <Grid item xs={12} md={12} >
 
@@ -357,3 +357,4 @@ export default function CadastroEstacionamento(){
     </Container>
   )
 }
+*/

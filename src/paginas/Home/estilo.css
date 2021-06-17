@@ -5,9 +5,10 @@
 }
 
 .home-apresentacao {
-    background-color:#1b3675;
-    padding: 20px 0;
-    padding-top: 100px;
+    background-color:#fff;
+    padding: 20px;
+    padding-top: 10px;
+    border: 15px;
 }
 
 .home-apresentacao h1 {
@@ -66,6 +67,7 @@
 .lista-sobre-estacionamento{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 10px;
 }
 
 .lista-sobre-estacionamento li {
@@ -77,6 +79,7 @@
 
 .home-depoimentos {
     margin-top: 60px;
+    background-color: aquamarine;
 }
 
 .lista-depoimentos {
@@ -98,6 +101,15 @@
     border-radius: 75px;
 }
 
+.titulo-sessao{
+    color: #4e3c4c;
+    font-size: 30px;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 2.4px;
+    padding: 10px 15px 0px;
+}
+
 .btn-contato {
     border: 1px solid #1b3675;
     border-radius: 3px;
@@ -107,6 +119,8 @@
     font-weight: 500;
     background-color:#1b3675;
     color: #fff;
+    display: inline-block;
+    margin: 0px 0px 10px;
 }
 
 .btn-contato:hover {

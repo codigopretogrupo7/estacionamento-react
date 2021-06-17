@@ -1,4 +1,4 @@
-import {
+/*import {
   Card, 
   CardActions, 
   CardContent, 
@@ -52,4 +52,4 @@ export default function Vaga(props){
       </Box>
     </Grid>
   )
-}
+}*/
