@@ -8,7 +8,7 @@ import './estilo.css';
 
 class Carrossel extends Component{
   render() {
-    const settings = {
+    var settings = {
       className: "center",
       centerMode: false,
       infinite: true,
@@ -17,7 +17,35 @@ class Carrossel extends Component{
       speed: 500, 
       arrows: true,
       dots: true,
-      acessibility:true
+      acessibility:true,
+      initialSlide:0,
+      responsive:[
+        {
+          breakpoint: 893,
+          settings: {
+            slidesToShow: 2,
+            slidesToScroll: 2,
+            infinite: true,
+            dots: true
+          }
+        },
+        {
+          breakpoint: 600,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1,
+            initialSlide: 0
+          }
+        },
+        {
+          breakpoint: 480,
+          settings: {
+            slidesToShow: 1,
+            slidesToScroll: 1
+          } 
+        }
+      ]
+
     };
     return (
      <div className = 'teste'>

@@ -78,7 +78,7 @@
 }
 
 .home-depoimentos {
-    margin-top: 60px;
+    margin-top: 0px;
     background-color: aquamarine;
 }
 
@@ -108,6 +108,7 @@
     text-transform: uppercase;
     letter-spacing: 2.4px;
     padding: 10px 15px 0px;
+    margin-top: px;
 }
 
 .btn-contato {
