@@ -6,4 +6,9 @@
     align-items: center;
     border: 10px;
     border-top: #fff;
+    display:flexbox;
+}
+
+a{
+    padding-left:10px;
 }
