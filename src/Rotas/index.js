@@ -5,7 +5,7 @@ import Home from '../paginas/Home';
 import Contato from '../paginas/Contato';
 import Login from '../paginas/Login';
 import CadastroEstacionamento from '../componentes/FormulariosCadastro/Estacionamento/index';
-import VagasEstacionamento from '../paginas/VagasEstacionamento'
+import VagasEstacionamento from '../paginas/VagasEstacionamento/'
 import Cadastro from '../paginas/Cadastro'
 
 import Topo from '../componentes/Topo';
