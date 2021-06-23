@@ -9,12 +9,11 @@ import VagasEstacionamento from '../paginas/VagasEstacionamento/'
 import Cadastro from '../paginas/Cadastro'
 import Estacionamentos from '../paginas/Estacionamentos'
 import EstacionamentoEspecifico from '../paginas/EstacionamentoEspecifico'
+import Checkin from '../paginas/Checkin'
+import Checkout from '../paginas/Checkout'
 
 import Topo from '../componentes/Topo';
 import Rodape from '../componentes/Rodape';
-
-
-
 
 const Rotas = () => (
     <>
@@ -30,6 +29,9 @@ const Rotas = () => (
                     <Route exact path='/CadastroEstacionamento' component={ CadastroEstacionamento } />
                     <Route exact path='/Vagas' component={ VagasEstacionamento } />
                     <Route exact path='/EstacionamentoEspecifico' component={ EstacionamentoEspecifico } />
+                    <Route exact path='/Checkin' component={ Checkin } />
+                    <Route exact path='/Checkout' component={ Checkout } />
+
                 </Switch>
             <Rodape />
         </BrowserRouter>
