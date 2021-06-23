@@ -4,6 +4,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import Home from '../paginas/Home';
 import Contato from '../paginas/Contato';
 import Login from '../paginas/Login';
+import Login2 from '../paginas/login2';
 import CadastroEstacionamento from '../componentes/FormulariosCadastro/Estacionamento/index';
 import VagasEstacionamento from '../paginas/VagasEstacionamento/'
 import Cadastro from '../paginas/Cadastro'
@@ -32,6 +33,7 @@ const Rotas = () => (
                     <Route exact path='/Checkin' component={ Checkin } />
                     {/* <Route exact path='/Checkout' component={ Checkout } /> */}
 
+                    <Route exact path='/Login2' component={Login2}/>
                 </Switch>
             <Rodape />
         </BrowserRouter>

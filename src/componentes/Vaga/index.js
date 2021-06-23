@@ -18,7 +18,7 @@ export default function Vaga(props){
   
   return(
     <Grid item key={props.idVaga} >
-      <Box mt={5} border={2}  borderRadius="borderRadius"  borderColor={props.vazia ? "limegreen" : "error.main"}>
+      <Box mt={1} border={2} mb={4} borderRadius="borderRadius"  borderColor={props.vazia ? "limegreen" : "error.main"}>
         <Card style={{width:'140px',height:'120px'}} >
           <CardContent>
             {
