@@ -8,11 +8,7 @@ const Topo = () => {
     <header className="topo">
       <div className="topo-conteudo">
         <Link className="topo-logo-box" to="/">
-          <img 
-            className="topo-logo" 
-            src="assets/park.png" 
-            alt="logo estacionamento" 
-            title="logo estacionamento"/>
+          <img className="topo-logo" src="assets/park.png" alt="logo estacionamento" title="logo estacionamento"/>
           <p className="topo-nome-empresa">Tem Vaga</p>
         </Link>
 

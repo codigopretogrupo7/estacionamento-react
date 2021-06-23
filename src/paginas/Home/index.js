@@ -1,8 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-// import Topo from '../../componentes/Topo';
-// import Rodape from '../../componentes/Rodape';
+import Carrossel from '../../componentes/Carrossel';
 
 import './estilo.css';
 
@@ -12,33 +11,7 @@ const Home = (  ) => {
 
       <div className="home-apresentacao">
         <div className="limitar-container">
-          <h1>Os melhores <span>estacionamentos do pais</span>!</h1>
-
-          <p>
-            Reserve online e estacione com desconto.
-          </p>
-
-          <ul className="lista-servicos">
-            <li>
-              <img src="assets/park.png" alt="logo" title="logo"/>
-              <p>Lorem ipsum</p>
-            </li>
-
-            <li>
-              <img src="assets/park.png" alt="logo" title="logo"/>
-              <p>Lorem ipsum</p>
-            </li>
-
-            <li>
-              <img src="assets/park.png" alt="logo" title="logo"/>
-              <p>Lorem ipsum</p>
-            </li>
-
-            <li>
-              <img src="assets/park.png" alt="logo" title="logo"/>
-              <p>Lorem ipsum</p>
-            </li>
-          </ul>
+          <Carrossel/>
         </div>
       </div>
 

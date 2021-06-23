@@ -1,7 +1,5 @@
 import React from 'react';
 
-// import Topo from '../../componentes/Topo';
-// import Rodape from '../../componentes/Rodape';
 import Mapa from '../../componentes/Mapa';
 
 import './estilo.css';

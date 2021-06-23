@@ -17,7 +17,8 @@ import AddCircleIcon from '@material-ui/icons/AddCircle';
 import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 
-import FormVeiculo from '../Veiculo'
+import FormVeiculo from '../Veiculo';
+import './style.css';
 
 
 export default function CadastroUsuario(){
@@ -76,6 +77,7 @@ export default function CadastroUsuario(){
   }
 
   return(
+    <div className = 'tamanho'>
     <Container fixed style={{textAlign: 'left'}}>
       <Box mt={7} ml={2} mb={3}>
         <p>Precisamos de algumas informações sobre você para efetuar um cadastro eficiente.</p>
@@ -254,5 +256,6 @@ export default function CadastroUsuario(){
       </form>
 
     </Container>
+    </div>
   )
 }

@@ -16,6 +16,7 @@ import {
 
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import './estilo.css';
 
 
 export default function CadastroEstacionamento(){
@@ -92,6 +93,7 @@ export default function CadastroEstacionamento(){
   };
 
   return(
+    <div className = 'tamanho'>
     <Container fixed style={{textAlign: 'left'}}>
       <Box mt={7} ml={2} mb={3}>
         <p>Para melhor atende-lo precisamos de informações sobre seu estacionamento, preencha o formulario a seguir.</p>
@@ -187,7 +189,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
 
-          {/* Horarios, modelos e numero de vagas */}
+          {/* Horarios, modelos e numero de vagas*/ }
           <>
             <Grid item xs={12} md={3} >
               <FormControl fullWidth >
@@ -270,7 +272,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
 
-          {/* Email senha */}
+          {/* Email senha*/ }
           <>
             <Grid item xs={12} md={12} >
               <Box mt={1} ml={2} mb={-2}>
@@ -338,7 +340,7 @@ export default function CadastroEstacionamento(){
             </Grid>
           </>
           
-          {/* Botao */}
+          {/* Botao*/ }
           <>
             <Grid item xs={12} md={12} >
 
@@ -355,5 +357,6 @@ export default function CadastroEstacionamento(){
       </form>
 
     </Container>
+    </div>
   )
 }
