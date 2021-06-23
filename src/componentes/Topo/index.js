@@ -14,6 +14,7 @@ const Topo = () => {
 
         <nav className="topo-links">
           <Link className="topo-link" to="/">Home</Link>
+          <Link className="topo-link" to="/Estacionamentos">Estacionamentos</Link>
           <Link className="topo-link" to="/contato">Contato</Link>
           <Link className="topo-link" to="/login">Login</Link>
         </nav>
