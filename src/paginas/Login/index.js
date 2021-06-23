@@ -65,16 +65,16 @@ const Login = () => {
                         Entrar com Google
                     </button>
                     <h4>Ainda não tem uma conta?</h4>
-                    <button id="cadastrar-se">
-                        <Link 
-                            to='/Cadastro' 
-                            style={
-                                {color:'white',textDecoration:'none'}
-                            }
-                        > 
+                    <Link 
+                        to='/Cadastro' 
+                        style={
+                            {color:'white',textDecoration:'none'}
+                        }
+                    > 
+                        <button id="cadastrar-se">
                             Cadastra-se 
-                        </Link>
-                    </button>
+                        </button>
+                    </Link>
 
 
 

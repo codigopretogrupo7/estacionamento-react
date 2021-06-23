@@ -38,6 +38,12 @@ export default function Estacionamentos(){
       Endereco:"Av Afonso de Sampaio e Sousa, 951",
       Estado:"São Paulo - SP"
     },
+    {
+      Imagem:'./Estacionamento.jpg',
+      Nome:"Estacionamento dos sonhos",
+      Endereco:"Av Afonso de Sampaio e Sousa, 951",
+      Estado:"São Paulo - SP"
+    },
   ])
 
 

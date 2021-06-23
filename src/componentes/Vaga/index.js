@@ -6,6 +6,7 @@ import {
   Grid,
   Box,
 } from '@material-ui/core/';
+import { Link } from 'react-router-dom';
 
 
 import Checkin from '@material-ui/icons/Add';
@@ -39,11 +40,13 @@ export default function Vaga(props){
               {
                 props.vazia ? 
                 <>
+                <Link to="/Checkin">
                   <Checkin color="primary" fontSize="large" style={{cursor:'pointer'}}/>
+                </Link>
                 </> :
                 <>
-                  <Checkout style={{marginRight:'17px',cursor:'pointer'}} color="secondary" fontSize="large"/>
-                  <Edit fontSize="large" style={{cursor:'pointer'}}/>
+                  <Checkout style={{marginRight:'17px',cursor:'pointer'}} color="secondary" fontSize="large"/>                  
+                  <Edit fontSize="large"  style={{cursor:'pointer'}}/>
                 </>
               }
             </CardActions>
