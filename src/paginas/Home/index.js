@@ -1,11 +1,19 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Context } from '../../Context/AuthContext';
 import Carrossel from '../../componentes/Carrossel';
 
 import './estilo.css';
 
 const Home = (  ) => {
+  const { redirect, alterRedirect } = useContext(Context)
+  
+  useEffect(()=>{
+    if(redirect){
+      alterRedirect(false)
+    }
+  },[redirect,alterRedirect])
+  
   return (
     <section>
 

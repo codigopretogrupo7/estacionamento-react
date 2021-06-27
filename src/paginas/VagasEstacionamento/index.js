@@ -2,7 +2,7 @@ import React,{ useState, useEffect } from 'react';
 
 import Vaga from '../../componentes/Vaga'
 
-import { Container, Grid } from '@material-ui/core'
+import { Container, Grid,Box } from '@material-ui/core'
 
 
 export default function VagasEstacionamento(){
@@ -76,7 +76,7 @@ export default function VagasEstacionamento(){
         "numeroVaga":"A6",
         "vazia":false,
         "nomeOcupante":"Boni",
-        "placaOcupante":"auau-1111",
+        "placaOcupante":"JKL-1582",
         "modeloOcupante":"Carro do debiloide"
       },
       {
@@ -136,66 +136,7 @@ export default function VagasEstacionamento(){
         "numeroVaga":"A6",
         "vazia":false,
         "nomeOcupante":"Boni",
-        "placaOcupante":"auau-1111",
-        "modeloOcupante":"Carro do debiloide"
-      },{
-        "idVaga":1,
-        "idEstacionamento":1,
-        "idOcupante":"",
-        "numeroVaga":"A1",
-        "vazia":true,
-        "nomeOcupante":"",
-        "placaOcupante":"",
-        "modeloOcupante":""
-      },
-      {
-        "idVaga":2,
-        "idEstacionamento":1,
-        "idOcupante":1,
-        "numeroVaga":"A2",
-        "vazia":false,
-        "nomeOcupante":"Lucas Damasceno",
-        "placaOcupante":"ABC-0000",
-        "modeloOcupante":"BMW"
-      },
-      {
-        "idVaga":3,
-        "idEstacionamento":1,
-        "idOcupante":2,
-        "numeroVaga":"A3",
-        "vazia":false,
-        "nomeOcupante":"Joyce Andrade",
-        "placaOcupante":"DEF-1111",
-        "modeloOcupante":"NOVO UNO"
-      },
-      {
-        "idVaga":4,
-        "idEstacionamento":1,
-        "idOcupante":"",
-        "numeroVaga":"A4",
-        "vazia":true,
-        "nomeOcupante":"",
-        "placaOcupante":"",
-        "modeloOcupante":""
-      },
-      {
-        "idVaga":5,
-        "idEstacionamento":1,
-        "idOcupante":"",
-        "numeroVaga":"A5",
-        "vazia":false,
-        "nomeOcupante":"",
-        "placaOcupante":"",
-        "modeloOcupante":""
-      },
-      {
-        "idVaga":6,
-        "idEstacionamento":1,
-        "idOcupante":3,
-        "numeroVaga":"A6",
-        "vazia":false,
-        "nomeOcupante":"Boni",
-        "placaOcupante":"auau-1111",
+        "placaOcupante":"JKL-1582",
         "modeloOcupante":"Carro do debiloide"
       },{
         "idVaga":1,
@@ -254,7 +195,7 @@ export default function VagasEstacionamento(){
         "numeroVaga":"A6",
         "vazia":false,
         "nomeOcupante":"Boni",
-        "placaOcupante":"auau-1111",
+        "placaOcupante":"JKL-1582",
         "modeloOcupante":"Carro do debiloide"
       },{
         "idVaga":1,
@@ -313,7 +254,66 @@ export default function VagasEstacionamento(){
         "numeroVaga":"A6",
         "vazia":false,
         "nomeOcupante":"Boni",
-        "placaOcupante":"auau-1111",
+        "placaOcupante":"JKL-1582",
+        "modeloOcupante":"Carro do debiloide"
+      },{
+        "idVaga":1,
+        "idEstacionamento":1,
+        "idOcupante":"",
+        "numeroVaga":"A1",
+        "vazia":true,
+        "nomeOcupante":"",
+        "placaOcupante":"",
+        "modeloOcupante":""
+      },
+      {
+        "idVaga":2,
+        "idEstacionamento":1,
+        "idOcupante":1,
+        "numeroVaga":"A2",
+        "vazia":false,
+        "nomeOcupante":"Lucas Damasceno",
+        "placaOcupante":"ABC-0000",
+        "modeloOcupante":"BMW"
+      },
+      {
+        "idVaga":3,
+        "idEstacionamento":1,
+        "idOcupante":2,
+        "numeroVaga":"A3",
+        "vazia":false,
+        "nomeOcupante":"Joyce Andrade",
+        "placaOcupante":"DEF-1111",
+        "modeloOcupante":"NOVO UNO"
+      },
+      {
+        "idVaga":4,
+        "idEstacionamento":1,
+        "idOcupante":"",
+        "numeroVaga":"A4",
+        "vazia":true,
+        "nomeOcupante":"",
+        "placaOcupante":"",
+        "modeloOcupante":""
+      },
+      {
+        "idVaga":5,
+        "idEstacionamento":1,
+        "idOcupante":"",
+        "numeroVaga":"A5",
+        "vazia":false,
+        "nomeOcupante":"",
+        "placaOcupante":"",
+        "modeloOcupante":""
+      },
+      {
+        "idVaga":6,
+        "idEstacionamento":1,
+        "idOcupante":3,
+        "numeroVaga":"A6",
+        "vazia":false,
+        "nomeOcupante":"Boni",
+        "placaOcupante":"JKL-1582",
         "modeloOcupante":"Carro do debiloide"
       }
     
@@ -344,7 +344,9 @@ export default function VagasEstacionamento(){
   
   return(
     <Container fixed>
-      <p> {vagasOcupadas} / {vagas.length} Vagas Ocupadas </p>
+      <Box mt={2}>
+        <p> {vagasOcupadas} / {vagas.length} Vagas Ocupadas </p>
+      </Box>
 
 
       <Grid container spacing={3}>

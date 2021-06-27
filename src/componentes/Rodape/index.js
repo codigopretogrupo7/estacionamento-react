@@ -5,7 +5,7 @@ import { Box } from '@material-ui/core'
 
 const Rodape = () => {
   return (
-    <Box mt={5}>
+    <Box >
       <footer className="rodape">
         <div className="limitar-container">
         <p>
