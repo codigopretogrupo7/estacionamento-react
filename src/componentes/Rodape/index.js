@@ -5,10 +5,10 @@ import { Box } from '@material-ui/core'
 
 const Rodape = () => {
   return (
-    <Box mt={5}>
+    <Box id="footer" mt={5}>
       <footer className="rodape">
         <div className="limitar-container">
-        <p>
+        <p className ="limitador"> 
           © Copyright 2021   |   Estacionamentos Lorem
         </p>
         <Link to='/CadastroEstacionamento' style={{color:"white", textDecoration:"none"}}>Trabalhe conosco | Cadastre seu estacionamento</Link>
