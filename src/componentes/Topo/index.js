@@ -9,13 +9,14 @@ const Topo = () => {
       <div className="topo-conteudo">
         <Link className="topo-logo-box" to="/">
           <img className="topo-logo" src="assets/park.png" alt="logo estacionamento" title="logo estacionamento"/>
-          <p className="topo-nome-empresa">Lorem</p>
+          <p className="topo-nome-empresa">Tem Vaga</p>
         </Link>
 
         <nav className="topo-links">
           <Link className="topo-link" to="/">Home</Link>
+          <Link className="topo-link" to="/Estacionamentos">Estacionamentos</Link>
+          <Link className="topo-link" to="/Vagas">Vagas</Link>
           <Link className="topo-link" to="/contato">Contato</Link>
-          <Link className="topo-link" to="/CadastroUsuario">Cadastre-se</Link>
           <Link className="topo-link" to="/login">Login</Link>
         </nav>
       </div>
