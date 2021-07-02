@@ -47,6 +47,8 @@
 
 .topo-link:hover {
     border-bottom: 3px solid #fff;
+    color: white;
+    
 }
 
 @media (max-width: 600px) {
