@@ -3,6 +3,7 @@
     border-bottom: 1px solid #fff;
     /* position: fixed; */
     width: 100%;
+    position: relative;
 }
 
 .topo-conteudo{

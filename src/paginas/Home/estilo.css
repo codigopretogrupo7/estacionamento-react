@@ -79,7 +79,7 @@
 
 .home-depoimentos {
     margin-top: 0px;
-    background-color: #48cae461;
+   
 }
 
 .lista-depoimentos {
@@ -107,7 +107,7 @@
     font-weight: 300;
     text-transform: uppercase;
     letter-spacing: 2.4px;
-    padding: 10px 15px 0px;
+    padding: 10px 15px;
     margin-top: px;
 }
 
