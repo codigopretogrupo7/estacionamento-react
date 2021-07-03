@@ -11,3 +11,12 @@
   .container {
     padding: 2px 16px;
   }
+  .card .container h4{
+    margin-bottom: .1rem;
+  }
+
+  .card .container .rua{
+    color: black;
+    margin: 0px;
+    margin-bottom:0rem;
+  }
