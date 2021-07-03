@@ -21,7 +21,7 @@ class Carrossel extends Component{
       initialSlide:0,
       responsive:[
         {
-          breakpoint: 893,
+          breakpoint: 900,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
@@ -53,8 +53,13 @@ class Carrossel extends Component{
         <h3>Estacionamentos recomendados</h3>
         <Slider {...settings}>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/garagem.jpg' estacionamento='Estacionamento Garagem' 
+          titulo='Estrela estacionameto' rua = 'Rua Campo Novo'
+          bairro = 'Pinheiros' cidade='São Paulo'
+          diaria = '45,00 '
+          descricao='Estacionamento coberto.'
+          />
+        
           <Card
           imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
