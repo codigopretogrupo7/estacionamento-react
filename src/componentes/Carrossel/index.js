@@ -51,6 +51,7 @@ class Carrossel extends Component{
      <div className = 'teste'>
      <div className = 'carrossel'>
         <h3>Estacionamentos recomendados</h3>
+        
         <Slider {...settings}>
           <Card
           imagem='assets/garagem.jpg' estacionamento='Estacionamento Garagem' 
