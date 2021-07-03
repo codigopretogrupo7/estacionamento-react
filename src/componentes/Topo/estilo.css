@@ -51,9 +51,9 @@
     
 }
 
-@media (max-width: 600px) {
+@media (max-width: 720px) {
     .topo-nome-empresa {
-        display: none;
+        font-size:18px;
     }
 
     .lista-sobre-aparelho {
