@@ -5,7 +5,11 @@ import { Box } from '@material-ui/core'
 
 const Rodape = () => {
   return (
+<<<<<<< HEAD
+    <Box mt={3}>
+=======
     <Box id="footer" mt={5}>
+>>>>>>> ab81903129f89f615cfc9ea7e1939e973202b485
       <footer className="rodape">
         <div className="limitar-container">
         <p className ="limitador"> 

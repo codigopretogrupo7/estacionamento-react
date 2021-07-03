@@ -51,6 +51,7 @@ class Carrossel extends Component{
      <div className = 'teste'>
      <div className = 'carrossel'>
         <h3>Estacionamentos recomendados</h3>
+        
         <Slider {...settings}>
           <Card
           imagem='assets/garagem.jpg' estacionamento='Estacionamento Garagem' 
@@ -61,29 +62,29 @@ class Carrossel extends Component{
           />
         
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/Estacionamento.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacione aqui!' descricao='Lorem Lorem'/>
         </Slider>
       </div>
       </div>

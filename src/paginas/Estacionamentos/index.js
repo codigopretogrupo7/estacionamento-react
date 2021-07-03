@@ -1,6 +1,7 @@
 import MiniEstacionamento from '../../componentes/MiniEstacionamento'
 import { Container, Box } from '@material-ui/core'
 import { useState } from 'react'
+import Rodape from '../../componentes/Rodape';
 
 
 
@@ -75,6 +76,8 @@ export default function Estacionamentos(){
         
         </Box>
       </Container>
+    <Rodape />
+
     </>
   )
 }

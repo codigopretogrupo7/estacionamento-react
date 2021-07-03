@@ -8,6 +8,8 @@ import {
   Box
 } from '@material-ui/core/'
 import { Link } from 'react-router-dom';
+import Rodape from '../../componentes/Rodape';
+
 
 
 
@@ -106,6 +108,7 @@ export default function Checkin(){
           </Grid>
         </form>
       </Box>
+      <Rodape />
     </Container>
   )
 }
