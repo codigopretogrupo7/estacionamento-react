@@ -54,7 +54,7 @@ class Carrossel extends Component{
         
         <Slider {...settings}>
           <Card
-          imagem='assets/garagem.jpg' estacionamento='Estacionamento Garagem' 
+          imagem='assets/garagem.jpg' estacionamento='Estacionamento estrela' 
           titulo='Estrela estacionameto' rua = 'Rua Campo Novo'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
@@ -62,8 +62,12 @@ class Carrossel extends Component{
           />
         
           <Card
-          imagem='assets/estacionamentos/estacionamento2.jpg' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/estacionamento2.jpg' 
+          titulo='Estrela estacionameto' rua = 'Rua Campo Novo'
+          bairro = 'Pinheiros' cidade='São Paulo'
+          diaria = '45,00 '
+          descricao='Estacionamento coberto.'
+          />
           <Card
           imagem='assets/estacionamento1.jpg' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
