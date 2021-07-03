@@ -61,28 +61,22 @@ class Carrossel extends Component{
           />
         
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
+          imagem='assets/estacionamentos/estacionamento2.jpg' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
+          imagem='assets/estacionamento1.jpg' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
+          imagem='assets/estacionamento3.jpg' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
+          imagem='assets/estacionamento4.jpg' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
+          imagem='assets/estacionamento5.png' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
-          <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
-          <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
+          imagem='assets/estacionamento6.jpg' estacionamento='Estacionamento1' 
           titulo='Teste1' descricao='Lorem Lorem'/>
         </Slider>
       </div>
