@@ -1,4 +1,5 @@
-import React,{ useState } from 'react'
+import React,{ useState, useContext } from 'react'
+import Rodape from '../../Rodape';
 import { 
   Container, 
   Button, 
@@ -20,13 +21,20 @@ import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 import FormVeiculo from '../Veiculo';
 import './style.css';
 
+import { Context } from '../../../Context/SubmitCar'
+import api from '../../../api'
+
 
 export default function CadastroUsuario(){
+
+	const { Modelo,Cor,Placa } = useContext(Context);
+
 
   const [ senha, setSenha ]       = useState('')
   const [ enviar, setEnviar ]     = useState(false)
   const [ numeroCarros, setNumeroCarros ] = useState(2)
   const [ veiculos, setVeiculos ] = useState([1])
+  const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
 
   const [ values, setValues ] = React.useState({
     password: '',
@@ -35,8 +43,21 @@ export default function CadastroUsuario(){
   });
 
 
-  function enviarFormulario(event){
+  async function enviarFormulario(event){
     event.preventDefault()
+    const dados = {
+      nome:event.target.nome.value,
+      sobrenome:event.target.sobrenome.value,
+      telefone:event.target.telefone.value,
+      cnh:event.target.cnh.value,
+      email:event.target.Email.value,
+      senha:event.target.Senha.value,
+      carros:veiculosCadastrados,
+      mode:'client'
+    }
+
+    await api.post("/users", dados)
+
     alert('Formulario Enviado, aguarde nosso email de confirmação!')
   }
 
@@ -67,7 +88,9 @@ export default function CadastroUsuario(){
   };
   
   function adicionaVeiculo(){
+    setVeiculosCadastrados([...veiculosCadastrados,{'modelo':Modelo,'placa':Placa,'cor':Cor}])
     setNumeroCarros(numeroCarros + 1)
+
   }
 
   function retiraVeiculo(id){
@@ -76,13 +99,14 @@ export default function CadastroUsuario(){
     setNumeroCarros(numeroCarros-1)
   }
 
+
   return(
     <div className = 'tamanho'>
     <Container fixed style={{textAlign: 'left'}}>
       <Box mt={7} ml={2} mb={3}>
         <p>Precisamos de algumas informações sobre você para efetuar um cadastro eficiente.</p>
       </Box>
-      <form  onSubmit={enviarFormulario}>
+      <form  onSubmit = {enviarFormulario}>
         <Grid container spacing={6}>  
 
           {/* Dados Pessoais */}
@@ -246,7 +270,7 @@ export default function CadastroUsuario(){
               {
                 enviar 
                 ? 
-                <Button type="submit" variant='contained' color='primary' >Cadastrar</Button>
+                <Button type="submit" variant='contained' color='primary'onClick={ () =>{setVeiculosCadastrados([...veiculosCadastrados,{'modelo':Modelo,'placa':Placa,'cor':Cor}])}} >Cadastrar</Button>
                 : 
                 <Button type="submit" variant='contained' disabled>Cadastrar</Button>
               }
@@ -256,6 +280,7 @@ export default function CadastroUsuario(){
       </form>
 
     </Container>
+    <Rodape />
     </div>
   )
 }

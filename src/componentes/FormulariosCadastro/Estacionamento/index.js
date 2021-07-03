@@ -17,6 +17,7 @@ import {
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import './estilo.css';
+import api from '../../../api'
 
 
 export default function CadastroEstacionamento(){
@@ -62,8 +63,39 @@ export default function CadastroEstacionamento(){
   }
 
 
-  function enviarFormulario(event){
+  async function enviarFormulario(event){
     event.preventDefault()
+    
+    const dados = {
+      nomeDoEstacionamento:event.target.nomeDoEstacionamento.value,
+      cep:event.target.cep.value,
+      estado:estado,
+      cidade:cidade,
+      bairro:bairro,
+      endereco:endereco,
+      numero:event.target.numero.value,
+      horarioDeAbertura:event.target.horarioDeAbertura.value,
+      horarioFechamento:event.target.horarioFechamento.value,
+      modeloVaga:event.target.modeloVaga.value,
+      numeroDeVagas:event.target.numeroDeVagas.value,
+      ValorDaHora:event.target.ValorDaHora.value,
+      AteHora:event.target.AteHora.value,
+      DemaisHoras:event.target.DemaisHoras.value,
+      email:event.target.Email.value,
+      senha:event.target.Senha.value,
+      mode:"Estacionamento"
+    }
+    
+    const header = {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+      },
+      body:JSON.stringify(dados),
+    }
+
+    await api.post("/users", dados)
+
     alert('Formulario Enviado, aguarde nosso email de confirmação!')
   }
 
@@ -297,6 +329,7 @@ export default function CadastroEstacionamento(){
                 <InputLabel htmlFor="Senha">Senha</InputLabel>
                   <Input
                     id="Senha"
+                    name="Senha"
                     type={values.showPassword ? 'text' : 'password'}
                     value={values.password}
                     onChange={handleChange('password')}

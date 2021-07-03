@@ -16,8 +16,6 @@ function AuthProvider({ children }){
       
       api.defaults.headers.Authorization = `Bearer ${json}`
       
-      console.log(json)
-
       setNome(json[0].name)
       setMode(json[0].mode)
       setAuthenticated(true)
@@ -27,17 +25,19 @@ function AuthProvider({ children }){
 
   async function handleLogin(email, senha){
     const { data } = await api.get(`users?email=${email}&&senha=${senha}`)
-    const dados = JSON.stringify(data)
-    
-    localStorage.setItem('data', dados)
-    api.defaults.headers.Authorization = `Bearer ${data}`
-    
-    console.log(data)
-
-    setNome(data[0].name)
-    setMode(data[0].mode)
-    setAuthenticated(true)
-    alterRedirect(true)
+      if( data.length > 0 ){
+        const dados = JSON.stringify(data)
+        
+        localStorage.setItem('data', dados)
+        api.defaults.headers.Authorization = `Bearer ${data}`
+        
+        setNome(data[0].name)
+        setMode(data[0].mode)
+        setAuthenticated(true)
+        alterRedirect(true)
+      }else{
+        return
+      }
   }
 
   async function handleLogout(){

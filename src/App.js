@@ -2,13 +2,17 @@ import Rotas from './Rotas';
 import './App.css'
 
 import { AuthProvider } from './Context/AuthContext'
+import { SubmitCar } from './Context/SubmitCar'
 
 function App() {
   return (
+    
     <AuthProvider>
-      <div className="App">
-        <Rotas />
-      </div>
+      <SubmitCar>
+        <div className="App">
+          <Rotas />
+        </div>
+      </SubmitCar>
     </AuthProvider>
   );
 }
