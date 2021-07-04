@@ -85,14 +85,6 @@ export default function CadastroEstacionamento(){
       senha:event.target.Senha.value,
       mode:"Estacionamento"
     }
-    
-    const header = {
-      method:"POST",
-      headers:{
-        "Content-Type":"application/json",
-      },
-      body:JSON.stringify(dados),
-    }
 
     await api.post("/users", dados)
 

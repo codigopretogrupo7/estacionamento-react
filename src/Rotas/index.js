@@ -44,13 +44,13 @@ const Rotas = () => (
             <Topo />
                 <Switch>
                     <CustomRoute exact path='/' component={ Home } />
-                    <CustomRoute exact path='/Estacionamentos' component={ Estacionamentos } />
+                    <CustomRoute exact path='/Estacionamentos-Parceiros' component={ Estacionamentos } />
                     <CustomRoute exact path='/contato' component={ Contato } />
                     <CustomRoute exact path='/Login' component={ Login } />
                     <CustomRoute exact path='/Cadastro' component={Cadastro}/>
                     <CustomRoute exact path='/CadastroEstacionamento' component={ CadastroEstacionamento } />
                     <CustomRoute isPrivate exact path='/Vagas' component={ VagasEstacionamento } />
-                    <CustomRoute exact path='/EstacionamentoEspecifico' component={ EstacionamentoEspecifico } />
+                    <CustomRoute exact path='/Estacionamento:id' component={ EstacionamentoEspecifico } />
                     <CustomRoute exact path='/Checkin' component={ Checkin } />
                     {/* <Route exact path='/Checkout' component={ Checkout } /> */}
 
