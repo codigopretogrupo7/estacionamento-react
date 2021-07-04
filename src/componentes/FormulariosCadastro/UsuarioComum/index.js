@@ -102,12 +102,12 @@ export default function CadastroUsuario(){
 
   return(
     <div className = 'tamanho'>
-    <Container fixed style={{textAlign: 'left'}}>
+    <Container fixed style={{textAlign: 'left'}} >
       <Box mt={7} ml={2} mb={3}>
         <p>Precisamos de algumas informações sobre você para efetuar um cadastro eficiente.</p>
       </Box>
       <form  onSubmit = {enviarFormulario}>
-        <Grid container spacing={6}>  
+        <Grid container spacing={6} >  
 
           {/* Dados Pessoais */}
           <> 
@@ -265,14 +265,14 @@ export default function CadastroUsuario(){
                 <p>O botao de cadastro mudara de cor se as suas senhas coincidirem</p>
               </Box>
             </Grid>
-            <Grid item xs={12} md={12} >
-
+            <Grid item xs={12} md={12}  style={{display:"flex",justifyContent:"center",alignItems:"center", marginBottom:"15px"}}>
               {
                 enviar 
                 ? 
                 <Button type="submit" variant='contained' color='primary'onClick={ () =>{setVeiculosCadastrados([...veiculosCadastrados,{'modelo':Modelo,'placa':Placa,'cor':Cor}])}} >Cadastrar</Button>
                 : 
                 <Button type="submit" variant='contained' disabled>Cadastrar</Button>
+                
               }
             </Grid>
           </>

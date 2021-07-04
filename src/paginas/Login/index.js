@@ -44,6 +44,7 @@ const Login = () => {
 						<div className='Login-loginInputPassword'>
 							<input
 								placeholder='Digite sua senha'
+								type="password"
 								// type={show ? "text" : "password"}
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
