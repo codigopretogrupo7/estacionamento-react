@@ -37,27 +37,21 @@ const Home = () => {
 
 				<ul className='lista-sobre-estacionamento limitar-container'>
 					<li>
-						<h3>Lorem ipsum</h3>
+						<h3>Na palma da sua mão</h3>
 						<p>
-							Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos
-							nobis eveniet id eaque voluptas. Et consectetur itaque est commodi
-							provident eum quia temporibus aut aliquam optio.
+							Encontre o estacionamento mais perto de você e reserve sua vaga, sabendo exatamente o valor que irá pagar, tudo na palma da sua mão.
 						</p>
 					</li>
 					<li>
-						<h3>Lorem ipsum</h3>
+						<h3>Sem parar</h3>
 						<p>
-							Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos
-							nobis eveniet id eaque voluptas. Et consectetur itaque est commodi
-							provident eum quia temporibus aut aliquam optio.
+							Passe direto em estacionamentos e dê adeus aos tickets para reembolso e filas de pagamento.
 						</p>
 					</li>
 					<li>
-						<h3>Lorem ipsum</h3>
+						<h3>Comodidade</h3>
 						<p>
-							Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos
-							nobis eveniet id eaque voluptas. Et consectetur itaque est commodi
-							provident eum quia temporibus aut aliquam optio.
+						Temos uma grande rede de estacionamentos credenciados para atender a sua necessidade. Escolha a unidade mais próxima a você e  conquiste a comodidade.
 						</p>
 					</li>
 				</ul>
