@@ -70,11 +70,23 @@
     margin-top: 10px;
 }
 
-.lista-sobre-estacionamento li {
+.lista-sobre-estacionamento li{
     padding: 0 15px;
     list-style: none;
-    text-align: start;
+    text-align: justify;
     flex: 1;
+    align-items:justify;
+}
+
+.lista-sobre-estacionamento li .icons{
+    align-items:center;
+    text-align:center;
+}
+
+.lista-sobre-estacionamento li .icons img{
+    width:5.5rem;
+    max-width: 5.5rem;
+    height:8.5rem;
 }
 
 .home-depoimentos {

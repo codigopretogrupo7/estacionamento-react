@@ -37,18 +37,36 @@ const Home = () => {
 
 				<ul className='lista-sobre-estacionamento limitar-container'>
 					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/phone.svg"
+							classname="icons"/>
+						</div>
+
 						<h3>Na palma da sua mão</h3>
 						<p>
 							Encontre o estacionamento mais perto de você e reserve sua vaga, sabendo exatamente o valor que irá pagar, tudo na palma da sua mão.
 						</p>
 					</li>
 					<li>
-						<h3>Sem parar</h3>
+						<div className='icons'>
+							<img 
+							src="assets/icons/cifrao.svg"
+							classname="icons"/>
+						</div>
+
+						<h3>Compare e economize</h3>
 						<p>
-							Passe direto em estacionamentos e dê adeus aos tickets para reembolso e filas de pagamento.
+							Saiba exatamente o valar que irá pagar, seja por 5 minutos, 1 hora, 1 mês. Encontre o menor preço. Pague o menor preço.
 						</p>
 					</li>
 					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/parking.svg"
+							classname="icons"/>
+						</div>
+
 						<h3>Comodidade</h3>
 						<p>
 						Temos uma grande rede de estacionamentos credenciados para atender a sua necessidade. Escolha a unidade mais próxima a você e  conquiste a comodidade.
