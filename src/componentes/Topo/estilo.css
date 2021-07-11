@@ -23,16 +23,23 @@
 }
 
 .topo-logo{
-    width: 30px;
-    height: 30px;
+    width: 40px;
+    height: 40px;
     margin-right: 10px;
 }
 
 .topo-nome-empresa{
     color: #fff;
-    font-size: 26px;
+    font-size: 45px;
     text-decoration: none;
     margin-top: 10px;
+    font-family: Otomanopee;
+}
+
+.topo-nome-empresa span{
+    color: #89e4ff;
+    font-weight: 800;
+    font-family: Otomanopee;
 }
 
 .topo-link {

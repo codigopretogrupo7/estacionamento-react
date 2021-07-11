@@ -1,0 +1,24 @@
+.parking-search__header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.parking-search__header h1{
+    text-transform:uppercase;
+    color: #888;
+}
+
+.parking-search__input{
+    display:flex;
+    height:42px;
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 16px;
+
+    margin-bottom: 20px;
+    padding: 0 10px;
+
+}
+

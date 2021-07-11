@@ -1,3 +1,5 @@
+
+
 .limitar-container {
     max-width: 1024px;
     margin: 0 auto;
@@ -68,6 +70,7 @@
     display: flex;
     flex-wrap: wrap;
     margin-top: 10px;
+    margin-top: 5.0em;
 }
 
 .lista-sobre-estacionamento li{
@@ -87,6 +90,11 @@
     width:5.5rem;
     max-width: 5.5rem;
     height:8.5rem;
+}
+
+.lista-sobre-estacionamento li h3{
+    margin-top: 1.7rem;
+    text-align: center;
 }
 
 .home-depoimentos {

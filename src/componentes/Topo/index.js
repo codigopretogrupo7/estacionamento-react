@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import { Context } from '../../Context/AuthContext';
 import './estilo.css';
 
+
+
 const Topo = () => {
   const { authenticated, handleLogout } = useContext(Context);
   
@@ -11,7 +13,7 @@ const Topo = () => {
       <div className="topo-conteudo">
         <Link className="topo-logo-box" to="/">
           <img className="topo-logo" src="assets/park.png" alt="logo estacionamento" title="logo estacionamento"/>
-          <p className="topo-nome-empresa">Tem Vaga</p>
+          <p className="topo-nome-empresa">Tem <span>Vaga</span></p>
         </Link>        
         <nav className="topo-links">
           <Link className="topo-link" to="/">Home</Link>

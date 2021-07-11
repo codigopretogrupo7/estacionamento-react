@@ -50,7 +50,7 @@ class Carrossel extends Component{
     return (
      <div className = 'teste'>
      <div className = 'carrossel'>
-        <h3>Estacionamentos recomendados</h3>
+        
         
         <Slider {...settings}>
           <Card

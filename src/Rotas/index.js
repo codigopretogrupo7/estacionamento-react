@@ -8,11 +8,12 @@ import Contato from '../paginas/Contato';
 import Login from '../paginas/Login';
 import Login2 from '../paginas/login2';
 import CadastroEstacionamento from '../componentes/FormulariosCadastro/Estacionamento/index';
-import VagasEstacionamento from '../paginas/VagasEstacionamento/'
-import Cadastro from '../paginas/Cadastro'
-import Estacionamentos from '../paginas/Estacionamentos'
-import EstacionamentoEspecifico from '../paginas/EstacionamentoEspecifico'
-import Checkin from '../paginas/Checkin'
+import VagasEstacionamento from '../paginas/VagasEstacionamento/';
+import Cadastro from '../paginas/Cadastro';
+import PagesParkingSearch from '../paginas/Search/Search';
+import Estacionamentos from '../paginas/Estacionamentos';
+import EstacionamentoEspecifico from '../paginas/EstacionamentoEspecifico';
+import Checkin from '../paginas/Checkin';
 // import Checkout from '../paginas/Checkout'
 
 import Topo from '../componentes/Topo';
@@ -47,6 +48,7 @@ const Rotas = () => (
                     <CustomRoute exact path='/Estacionamentos-Parceiros' component={ Estacionamentos } />
                     <CustomRoute exact path='/contato' component={ Contato } />
                     <CustomRoute exact path='/Login' component={ Login } />
+                    <CustomRoute exact path='/Search' component={ PagesParkingSearch} />
                     <CustomRoute exact path='/Cadastro' component={Cadastro}/>
                     <CustomRoute exact path='/CadastroEstacionamento' component={ CadastroEstacionamento } />
                     <CustomRoute isPrivate exact path='/Vagas' component={ VagasEstacionamento } />
