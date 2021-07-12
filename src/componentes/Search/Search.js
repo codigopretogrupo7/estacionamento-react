@@ -37,7 +37,8 @@ const ParkingSearch = () => {
             onChange={(event) =>setSearch(event.target.value)} 
             />
            
-            <ParkingList parkings={parkings} loading={!parkings.length}/>
+                <ParkingList parkings={parkings} loading={!parkings.length}/>
+            
         </div>
     );
 };
