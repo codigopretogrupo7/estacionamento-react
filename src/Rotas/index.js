@@ -17,7 +17,6 @@ import Checkin from '../paginas/Checkin';
 
 // import Checkout from '../paginas/Checkout'
 
-import Topo from '../componentes/Topo';
 import Navbar from '../componentes/Topo2/Navbar';
 
 import { Context } from '../Context/AuthContext'
@@ -43,7 +42,7 @@ const Rotas = () => (
     <>
     
         <BrowserRouter>
-            <Topo />
+            <Navbar/>
                 <Switch>
                     <CustomRoute exact path='/' component={ Home } />
                     <CustomRoute exact path='/Estacionamentos-Parceiros' component={ Estacionamentos } />

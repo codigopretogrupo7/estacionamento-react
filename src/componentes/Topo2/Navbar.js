@@ -1,63 +1,67 @@
-import React, {Component} from 'react';
+import React, {useState, useContext} from 'react';
 import {Link} from 'react-router-dom';
+import { Context } from '../../Context/AuthContext';
+
 
 import './Navbar.css';
 
 
 
-export default class Navbar extends Component {
-    
-    state = {clicked:false}
-    
+export default function Navbar () {
+    const [clicked,setClicked] = useState(false);
+     
+ 
+    const handleClick = () =>{
+         setClicked(!clicked)
+     }
 
-    handleClick = () =>{
-        this.setState({clicked: !this.state.clicked})
-    }
-
-    
+     const { authenticated, handleLogout } = useContext(Context);
+ 
 
 
-    render() {
         return (
             
             <nav className="NavbarItems">
                 <Link className="navbar-logo" to={'/'}>
                     <h1><img className="topo-logo" src="assets/park.png" alt="logo estacionamento" title="logo estacionamento"/>Tem Vaga </h1>
                 </Link>
-                <div className="menu-icon" onClick={this.handleClick}>
-                    <i className={this.state.clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
+                <div className="menu-icon" onClick={handleClick}>
+                    <i className={clicked ? 'fas fa-times' : 'fas fa-bars'}></i>
                     
                 </div>   
-                    <ul className={this.state.clicked ? 'nav-menu active' : 'nav-menu'}>
+                    <ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
                         <li>
-                            <Link className="nav-links" to={'/'} onClick={this.handleClick}>
+                            <Link className="nav-links" to={'/'} onClick={handleClick}>
                                  Home
                             </Link>   
                         </li>
 
                         <li>
-                            <Link className="nav-links" to={'/Estacionamentos-Parceiros'}onClick={this.handleClick}>
+                            <Link className="nav-links" to={'/Estacionamentos-Parceiros'}onClick={handleClick}>
                                Estacionamentos Parceiros
                             </Link>
                         </li>
 
                         <li>
-                            <Link className="nav-links" to={'/contato'} onClick={this.handleClick}>
+                            <Link className="nav-links" to={'/contato'} onClick={handleClick}>
                                 Contato
                             </Link>                                  
                         </li>
 
-                        <li>                                       
-                            <Link className="nav-links" to={'/login'} onClick={this.handleClick}>
-                                Login
-                            </Link>
+                        <li>
+                            {authenticated  ?  
+                                <span className="topo-link" onClick={handleLogout}>Sair</span>:                                   
+                                <Link className="nav-links" to={'/login'} onClick={handleClick}>
+                                    Login
+                                </Link>
+                            }
                         </li>
                     </ul>
                     
             </nav>
         )
     }
-}
+
 
 
 
