@@ -14,10 +14,11 @@ import PagesParkingSearch from '../paginas/Search/Search';
 import Estacionamentos from '../paginas/Estacionamentos';
 import EstacionamentoEspecifico from '../paginas/EstacionamentoEspecifico';
 import Checkin from '../paginas/Checkin';
+
 // import Checkout from '../paginas/Checkout'
 
 import Topo from '../componentes/Topo';
-
+import Navbar from '../componentes/Topo2/Navbar';
 
 import { Context } from '../Context/AuthContext'
 
@@ -57,6 +58,8 @@ const Rotas = () => (
                     {/* <Route exact path='/Checkout' component={ Checkout } /> */}
 
                     <CustomRoute exact path='/Login2' component={Login2}/>
+                  
+
                 </Switch>
         </BrowserRouter>
     

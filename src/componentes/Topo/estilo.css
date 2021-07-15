@@ -60,6 +60,20 @@
     
 }
 
+.btn-mobile {
+    display:none;
+}
+
+@media (max-width: 820px){
+    .btn-mobile{
+        display:block;
+    }
+
+    .menu{
+        display:none;
+    }
+}
+
 @media (max-width: 720px) {
     .topo-nome-empresa {
         font-size:18px;
