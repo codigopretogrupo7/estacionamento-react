@@ -54,47 +54,47 @@ class Carrossel extends Component{
         
         <Slider {...settings}>
           <Card
-          imagem='assets/estacionamentos/garagem.jpg' estacionamento='Estacionamento estrela' 
-          titulo='Estrela estacionameto' rua = 'Rua Campo Novo'
+          imagem='assets/Estacionamentos/garagem.jpg' estacionamento='Estacionamento estrela' 
+          titulo='Estrela estacionamento' rua = 'Rua Campo Novo'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'
           />
         
           <Card
-          imagem='assets/estacionamentos/estacionamento2.jpg' 
-          titulo='Estrela estacionameto' rua = 'Rua Campo Novo'
+          imagem='assets/Estacionamentos/estacionamento2.jpg' 
+          titulo='Estrela estacionamento' rua = 'Rua Campo Novo'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'
           />
           <Card
-          imagem='assets/estacionamentos/estacionamento1.jpg' estacionamento='Estacionamento1' 
-          titulo='Teste' descricao='Lorem Lorem'
+          imagem='assets/Estacionamentos/estacionamento1.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacionamento do joão' descricao='Lorem Lorem'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'/>
           <Card
-          imagem='assets/estacionamentos/estacionamento3.jpg' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'
+          imagem='assets/Estacionamentos/estacionamento3.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacionamento 2 irmãos' descricao='Lorem Lorem'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'/>
           <Card
-          imagem='assets/estacionamentos/estacionamento4.jpg' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'
+          imagem='assets/Estacionamentos/estacionamento4.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacionamento Figueiras' descricao='Lorem Lorem'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'/>
           <Card
-          imagem='assets/estacionamentos/estacionamento5.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'
+          imagem='assets/Estacionamentos/estacionamento5.png' estacionamento='Estacionamento1' 
+          titulo='Estacionamento Parm' descricao='Lorem Lorem'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'/>
           <Card
-          imagem='assets/estacionamentos/estacionamento6.jpg' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'
+          imagem='assets/Estacionamentos/estacionamento6.jpg' estacionamento='Estacionamento1' 
+          titulo='Estacionamento G7' descricao='Lorem Lorem'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
           descricao='Estacionamento coberto.'/>
