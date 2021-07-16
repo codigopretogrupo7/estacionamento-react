@@ -8,6 +8,10 @@
     border: 10px;
     border-top: #fff;
     margin-top:0px;
+    top: 50%;
+    bottom:0;
+    position:inherit;
+    width: 100%;
 
 }
 
