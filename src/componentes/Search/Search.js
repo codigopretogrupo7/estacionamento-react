@@ -1,11 +1,10 @@
 
 import React, { useEffect, useState } from 'react';
-import axios from 'axios';
 import { Link } from 'react-router-dom';
 import ParkingList from '../List/List';
 import './Search.css';
 
-
+import api from '../../api'
 
 const ParkingSearch = () => {
     const[parkings, setParkings] = useState([]);
@@ -13,10 +12,12 @@ const ParkingSearch = () => {
 
     useEffect(() => {
         const params ={};
+
         if(search){
             params.Nome_Estacionamento_like = search;
         }
-        axios.get('http://localhost:5000/parkings',{params})
+        
+        api.get('/parkings',{params})
         .then((response) => {
           setParkings(response.data);
         });

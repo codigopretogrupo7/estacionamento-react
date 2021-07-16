@@ -11,8 +11,8 @@ const ParkingList = ({loading, parkings})  =>{
     return (
         <div className="parking-list">
             {parkings.map((parking)=>(
-            <ParkingCard parking ={parking}/>
-        ))}
+                <ParkingCard parking ={parking}/>
+            ))}
         </div>
     )
 }

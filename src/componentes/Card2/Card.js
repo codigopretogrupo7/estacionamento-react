@@ -1,11 +1,13 @@
 import React from 'react';
 import './Card.css';
-
+import { Link } from 'react-router-dom'
 
 
   const ParkingCard = ({parking}) => {
   return (
     <div className='card' >
+      <Link style={{textDecoration:"none", color:"black"}} to={{pathname:`/Estacionamento${parking.id}`}} >
+
         <img className="img-estacionamentocard"  src={parking.imageUrl} alt={parking.Nome_Estacionamento} />
           <div className='container'>
             <div className='titulo'>
@@ -22,6 +24,7 @@ import './Card.css';
               <b>{parking.Descricao}</b>             
             </div>
           </div>      
+      </Link>
     </div>
   );
 }

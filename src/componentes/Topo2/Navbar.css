@@ -24,6 +24,11 @@
     margin-right: 10px;
 }
 
+.topo-logo{
+    width: 40px;
+    height: 40px;
+}
+
 .nav-menu {
     display: grid;
     grid-template-columns: repeat(5, auto);

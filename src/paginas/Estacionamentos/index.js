@@ -25,9 +25,6 @@ export default function Estacionamentos(){
   useEffect( () => {
     pegaEstacionamentos()
   },[])
-  
-
-  console.log(estacionamento)
 
   return(
     <>
