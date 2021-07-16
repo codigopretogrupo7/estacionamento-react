@@ -50,54 +50,59 @@ class Carrossel extends Component{
     return (
      <div className = 'teste'>
      <div className = 'carrossel'>
-        <h3>Estacionamentos recomendados</h3>
+        
         
         <Slider {...settings}>
           <Card
-          imagem='assets/Estacionamentos/garagem.jpg' estacionamento='Estacionamento estrela' 
+          imagem='assets/estacionamentos/garagem.jpg' estacionamento='Estacionamento estrela' 
           titulo='Estrela estacionamento' rua = 'Rua Campo Novo'
           bairro = 'Pinheiros' cidade='São Paulo'
           diaria = '45,00 '
-          descricao='Estacionamento coberto.'
+          descricao='Vaga coberta.'
           />
         
           <Card
-          imagem='assets/Estacionamentos/estacionamento2.jpg' 
-          titulo='Estrela estacionamento' rua = 'Rua Campo Novo'
-          bairro = 'Pinheiros' cidade='São Paulo'
-          diaria = '45,00 '
-          descricao='Estacionamento coberto.'
+          imagem='assets/estacionamentos/estacionamento2.jpg' 
+          titulo='Inpark estacionameto' rua = 'Rua salvador'
+          bairro = 'Zona Norte' cidade='São Paulo'
+          diaria = '40,00 '
+          descricao='Vaga coberta.'
           />
           <Card
-          imagem='assets/Estacionamentos/estacionamento1.jpg' estacionamento='Estacionamento1' 
-          titulo='Estacionamento do joão' descricao='Lorem Lorem'
-          bairro = 'Pinheiros' cidade='São Paulo'
-          diaria = '45,00 '
-          descricao='Estacionamento coberto.'/>
+          imagem='assets/estacionamentos/estacionamento1.jpg' 
+          titulo='Estapar' rua = 'Rua Arcipreste Paiva'
+          bairro = 'São Domingos' cidade='São Paulo'
+          diaria = '35,00 '
+          descricao='Vaga coberta.'
+          />
           <Card
-          imagem='assets/Estacionamentos/estacionamento3.jpg' estacionamento='Estacionamento1' 
-          titulo='Estacionamento 2 irmãos' descricao='Lorem Lorem'
-          bairro = 'Pinheiros' cidade='São Paulo'
-          diaria = '45,00 '
-          descricao='Estacionamento coberto.'/>
+          imagem='assets/estacionamentos/estacionamento3.jpg' 
+          titulo='MultiPark Itaberaba' rua = 'Rua Jaguabara'
+          bairro = 'Itaberaba' cidade='São Paulo'
+          diaria = '35,00 '
+          descricao='Vaga coberta.'
+          />
           <Card
-          imagem='assets/Estacionamentos/estacionamento4.jpg' estacionamento='Estacionamento1' 
-          titulo='Estacionamento Figueiras' descricao='Lorem Lorem'
-          bairro = 'Pinheiros' cidade='São Paulo'
-          diaria = '45,00 '
-          descricao='Estacionamento coberto.'/>
+          imagem='assets/estacionamentos/estacionamento4.jpg' 
+          titulo='Campo de Marte' rua = 'Aeroporto Campo de Marte'
+          bairro = 'Rodovia Helio smith' cidade='São Paulo'
+          diaria = '55,00 '
+          descricao='Vaga descoberta.'
+          />
           <Card
-          imagem='assets/Estacionamentos/estacionamento5.png' estacionamento='Estacionamento1' 
-          titulo='Estacionamento Parm' descricao='Lorem Lorem'
-          bairro = 'Pinheiros' cidade='São Paulo'
-          diaria = '45,00 '
-          descricao='Estacionamento coberto.'/>
+         imagem='assets/estacionamentos/estacionamento5.png' 
+         titulo='Estapar' rua = 'Rua Coroneu Garcia'
+         bairro = 'Jardins' cidade='São Paulo'
+         diaria = '35,00 '
+         descricao='Vaga coberta.'
+         />
           <Card
-          imagem='assets/Estacionamentos/estacionamento6.jpg' estacionamento='Estacionamento1' 
-          titulo='Estacionamento G7' descricao='Lorem Lorem'
-          bairro = 'Pinheiros' cidade='São Paulo'
-          diaria = '45,00 '
-          descricao='Estacionamento coberto.'/>
+          imagem='assets/estacionamentos/estacionamento6.jpg' 
+          titulo='Shopping estação' rua = 'Avenida Miguel Sutil'
+          bairro = 'Goiabeiras' cidade='São Paulo'
+          diaria = '35,00 '
+          descricao='Vaga coberta.'
+          />
         </Slider>
       </div>
       </div>

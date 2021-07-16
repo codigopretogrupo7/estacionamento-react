@@ -14,7 +14,7 @@ export default function EstacionamentoEspecifico(props) {
 	}, []);
 
 	async function pegaEstacionamento() {
-		const { data } = await api.get(`/users/${props.match.params.id}`);
+		const { data } = await api.get(`/parkings/${props.match.params.id}`);
 		setEstacionamento(...estacionamento, [data]);
 	}
 
@@ -26,10 +26,10 @@ export default function EstacionamentoEspecifico(props) {
 					<Grid item xs={12} md={7}>
 						<Box display='flex' justifyContent='center' alignItems='center'>
 							<EstacionamentoParceiro
-								endereco={e.endereco}
-								numero={e.numero}
-								cidade={e.cidade}
-								estado={e.estado}
+								endereco={e.Rua}
+								numero={e.Numero}
+								cidade={e.Cidade}
+								estado={e.Bairro}
 								cep={e.cep}
 								horarioDeAbertura={e.horarioDeAbertura}
 								horarioFechamento={e.horarioFechamento}

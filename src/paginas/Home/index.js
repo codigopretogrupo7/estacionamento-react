@@ -18,8 +18,50 @@ const Home = () => {
 	return (
 		<>
 			<section>
+				<h1>Aproveite a liberdade de chegar onde e quando você quiser.</h1>
+
+				<ul className='lista-sobre-estacionamento limitar-container'>
+					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/phone.svg"
+							classname="icons"/>
+						</div>
+
+						<h3>Na palma da sua mão</h3>
+						<p>
+							Encontre o estacionamento mais perto de você e reserve sua vaga, sabendo exatamente o valor que irá pagar, tudo na palma da sua mão.
+						</p>
+					</li>
+					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/cifrao.svg"
+							classname="icons"/>
+						</div>
+
+						<h3>Compare e economize</h3>
+						<p>
+							Saiba exatamente o valar que irá pagar, seja por 5 minutos, 1 hora, 1 mês. Encontre o menor preço. Pague o menor preço.
+						</p>
+					</li>
+					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/parking.svg"
+							classname="icons"/>
+						</div>
+
+						<h3>Comodidade</h3>
+						<p>
+						Temos uma grande rede de estacionamentos credenciados para atender a sua necessidade. Escolha a unidade mais próxima a você e  conquiste a comodidade.
+						</p>
+					</li>
+				</ul>
+
 				<div className='home-apresentacao'>
 					<div className='limitar-container'>
+					<h3>Estacionamentos recomendados</h3>
 						<Carrossel />
 					</div>
 				</div>
@@ -35,32 +77,7 @@ const Home = () => {
 					title='Imagem do uso de um estacionamento'
 				/>
 
-				<ul className='lista-sobre-estacionamento limitar-container'>
-					<li>
-						<h3>Lorem ipsum</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos
-							nobis eveniet id eaque voluptas. Et consectetur itaque est commodi
-							provident eum quia temporibus aut aliquam optio.
-						</p>
-					</li>
-					<li>
-						<h3>Lorem ipsum</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos
-							nobis eveniet id eaque voluptas. Et consectetur itaque est commodi
-							provident eum quia temporibus aut aliquam optio.
-						</p>
-					</li>
-					<li>
-						<h3>Lorem ipsum</h3>
-						<p>
-							Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos
-							nobis eveniet id eaque voluptas. Et consectetur itaque est commodi
-							provident eum quia temporibus aut aliquam optio.
-						</p>
-					</li>
-				</ul>
+				
 
 				<div className='home-depoimentos'>
 					<h2 className='titulo-sessao'>
