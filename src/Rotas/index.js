@@ -16,7 +16,7 @@ import Checkin from '../paginas/Checkin';
 
 // import Checkout from '../paginas/Checkout'
 
-import Navbar from '../componentes/Topo2/Navbar';
+import Navbar from '../componentes/Navbar/Navbar';
 
 
 import { Context } from '../Context/AuthContext'
