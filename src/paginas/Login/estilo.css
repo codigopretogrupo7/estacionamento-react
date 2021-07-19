@@ -13,21 +13,27 @@
     width:100%;
     background-color: black;
     background-image: url('./parking.jpg');
+
+    min-width: 300px;
   
 }
 
 .Login-right{
-    background-color: #f1f1f1;
+    background-color: rgba(255, 255, 255, 0.911);
     border-radius: 5px;
     flex-direction: column;
     justify-content: space-between;
-    box-shadow: 6px 3px 6px 3px grey;
-    border-radius: 20px;
-    align-items: stretch;
-    padding: 20px;
-    width: 350px;
+    box-shadow: 6px 3px 6px 3px #ccc;
+    border-radius: 10px;
+    align-items: center;
+    padding: 30px;
+    width: 80%;
     height: auto;
     position: absolute;
+
+    max-width:350px;
+    min-width: 300px;
+    min-height:300px;
 
 }
 .Login-right h1{
@@ -49,18 +55,17 @@
     align-items: center;
     color: gray;
     background-color:white;
-    border-radius:3px ;
+    
     padding: 3px;
     width: 98%;
     height: 50px;
     margin-top: 10px;
    
+    border:1px solid #ccc;
+    border-radius:5px;
 }
 
-.Login-loginInputEmail svg{
-    margin-left: 10px;
-    font-size: 25px;
-}
+
 
 .Login-loginInputEmail input{
     background-color: transparent;
@@ -83,12 +88,11 @@
     width: 98%;
     height: 50px;
     margin-top: 10px;
+    border:1px solid #ccc;
+    border-radius:5px;
 }
 
-.Login-loginInputPassword svg{
-    margin-left: 10px;
-    font-size: 25px;
-}
+
 
 .Login-loginInputPassword input{
     background-color: transparent;
@@ -118,6 +122,10 @@
     margin-top: 20px;
 }
 
+.Login-separador{
+    margin-top: 10px;
+
+}
 .Login-right #Facebook{
     background-color: #3f51b5;
  
@@ -127,17 +135,19 @@
     background-color:#e61d1dd6;
 }
 
-.Login-right #cadastrar-se{
-    background-color: #48cae4;
+
+
+.fa-facebook{
+    margin-right: 10px;
+}
+.fa-google{
+    margin-right: 10px;
+    margin-left: -13px;
+
 }
 
-.Login-right button:hover{
-    background-color: #121214;
-    color: #eff2f5;
-    cursor: pointer;
+.footerLogin{
+    margin-top:10px;
+    font-size:15px;
 }
-
-/* .login-eye{
-    
-} */
 

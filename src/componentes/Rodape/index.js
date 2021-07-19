@@ -8,10 +8,11 @@ const Rodape = () => {
     
       <footer className="rodape">
         <div className="limitar-container">
-        <p className ="limitador"> 
-          © Copyright 2021   |   Tem Vaga!
-        </p>
+        
         <Link to='/CadastroEstacionamento' style={{color:"white", textDecoration:"none"}}>Trabalhe conosco | Cadastre seu estacionamento</Link>
+        <p className ="limitador"> 
+          © Copyright 2021 - Tem Vaga!
+        </p>
         </div>
       </footer>
     

@@ -24,10 +24,7 @@
     margin-right: 10px;
 }
 
-.topo-logo{
-    width: 40px;
-    height: 40px;
-}
+
 
 .nav-menu {
     display: grid;
@@ -53,9 +50,10 @@
 }
 
 .nav-links:hover{
-    background-color: #89e4ff;
+    background-color: #89e3ff83;
     border-radius: 4px;
     transition: all 0.2s ease-out;
+    color: #fff;
 }
 
 .fa-bars{
@@ -73,6 +71,8 @@
 @media screen and (max-width:960px) {
     .NavbarItems{
         position:relative;
+        min-width: 300px;
+        
     }
     .nav-menu{
         display:flex;

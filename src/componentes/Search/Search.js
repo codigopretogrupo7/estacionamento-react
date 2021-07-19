@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import ParkingList from '../List/List';
 import './Search.css';
 
+
 import api from '../../api'
 
 const ParkingSearch = () => {
@@ -41,6 +42,8 @@ const ParkingSearch = () => {
                 <ParkingList parkings={parkings} loading={!parkings.length}/>
             
         </div>
+        
+        
     );
 };
 

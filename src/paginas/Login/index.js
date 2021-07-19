@@ -6,16 +6,13 @@ import { Context } from '../../Context/AuthContext';
 import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
+import { Facebook } from '@material-ui/icons';
+
 
 const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
-	// const[show, setShow] =useState(false)
 
-	// const handleClick = (e) => {
-	//     e.preventDefault()
-	//     setPassword(!show);
-	// }
 
 	const { redirect, handleLogin, mode } = useContext(Context);
 
@@ -33,38 +30,25 @@ const Login = () => {
 						<h1> Acessar </h1>
 
 						<div className='Login-loginInputEmail'>
+							
 							<input
 								type='email'
 								placeholder='Digite um email'
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 							/>
+							
 						</div>
 
 						<div className='Login-loginInputPassword'>
+							
 							<input
 								placeholder='Digite sua senha'
 								type="password"
-								// type={show ? "text" : "password"}
 								value={password}
 								onChange={(e) => setPassword(e.target.value)}
 							/>
-							{/* escolher biblioteca de icones antes de liberar.
-                         <div className="login-eye">
-                         {show ? (
-                             <componete de icone senha
-                             size={20}
-                             onClick ={handleClick}
-                             />
-                             ): (
-                                 <componente de icone senha escondida
-                                 size={20}
-                                 onClick ={handleClick}
-                                 />
-                                 )}
-                                 
-                                 </div>
-                                */}
+							
 						</div>
 
 						<button
@@ -76,20 +60,17 @@ const Login = () => {
 						>
 							Entrar
 						</button>
-
+						<p className='Login-separador'>OU</p>
 						<button type='submit' id='Facebook'>
+						<i class="fab fa-facebook"></i>
 							Entrar com Facebook
 						</button>
 						<button type='submit' id='Google'>
+						<i class="fab fa-google"></i>
 							Entrar com Google
 						</button>
-						<h4>Ainda não tem uma conta?</h4>
-						<Link
-							to='/Cadastro'
-							style={{ color: 'white', textDecoration: 'none' }}
-						>
-							<button id='cadastrar-se'>Cadastra-se</button>
-						</Link>
+						<div className="footerLogin">Não tem uma conta? <Link to='/Cadastro'>Registre-se</Link></div>
+						
 					</div>
 				</div>
 			</div>

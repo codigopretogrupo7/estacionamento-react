@@ -2,7 +2,7 @@
 .rodape {
     background-color:#0077B6;
     color: #fff;
-    height: 50px;
+    height: auto;
     display: flex;
     align-items: center;
     border: 10px;

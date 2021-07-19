@@ -6,7 +6,6 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from '../paginas/Home';
 import Contato from '../paginas/Contato';
 import Login from '../paginas/Login';
-import Login2 from '../paginas/login2';
 import CadastroEstacionamento from '../componentes/FormulariosCadastro/Estacionamento/index';
 import VagasEstacionamento from '../paginas/VagasEstacionamento/';
 import Cadastro from '../paginas/Cadastro';
@@ -18,6 +17,7 @@ import Checkin from '../paginas/Checkin';
 // import Checkout from '../paginas/Checkout'
 
 import Navbar from '../componentes/Topo2/Navbar';
+
 
 import { Context } from '../Context/AuthContext'
 
@@ -56,7 +56,7 @@ const Rotas = () => (
                     <CustomRoute exact path='/Checkin' component={ Checkin } />
                     {/* <Route exact path='/Checkout' component={ Checkout } /> */}
 
-                    <CustomRoute exact path='/Login2' component={Login2}/>
+                    
                   
 
                 </Switch>
