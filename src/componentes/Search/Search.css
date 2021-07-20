@@ -1,6 +1,7 @@
 .parking-search{
     max-width: 1000px;
     margin: 03px auto;
+    width: 90%;
 }
 
 
@@ -34,14 +35,24 @@
     display:flex;
     flex-wrap: wrap;
     justify-content: space-between;
-    height:100%;
-    width: 100%;
+    height:auto;
+    width: auto;
 }
 
 .card{
     
     margin: 0.3rem;
-    
-    
+     
+}
+
+@media (max-width:1031px){
+    .parking-list{
+        align-items: center;
+        justify-content: center;
+    }
+
+    .card{
+        margin:1rem;
+    }
 }
 

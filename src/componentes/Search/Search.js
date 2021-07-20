@@ -27,8 +27,7 @@ const ParkingSearch = () => {
     return(
         <div className="parking-search">
             <header className="parking-search__header">
-                <h1>Estacionamentos</h1>
-                <Link to="/create">Novo estacionamento</Link>
+                <h1>Estacionamentos Parceiros</h1>
             </header>
           
             <input 
