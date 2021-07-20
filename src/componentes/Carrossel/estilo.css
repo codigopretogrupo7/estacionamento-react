@@ -2,3 +2,16 @@
 .slick-prev:before, .slick-next:before{
     color:black;
 }
+
+@media (max-width:1000px){
+    .card{
+        margin:10px;
+    }
+}
+
+
+@media (max-width:400px){
+   .card{
+       width:100%;
+   }
+}

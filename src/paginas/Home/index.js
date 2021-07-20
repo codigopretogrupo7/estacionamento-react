@@ -20,6 +20,21 @@ const Home = () => {
 			<section>
 				<h1>Aproveite a liberdade de chegar onde e quando você quiser.</h1>
 
+				
+
+				<div className='home-apresentacao'>
+					<div className='limitar-container'>
+					<h3>Estacionamentos recomendados</h3>
+						<Carrossel />
+					</div>
+				</div>
+
+				
+
+				<h2 className='titulo-sessao'>
+					Por que contratar nossos <b>estacionamentos</b>?
+				</h2>
+
 				<ul className='lista-sobre-estacionamento limitar-container'>
 					<li>
 						<div className='icons'>
@@ -58,24 +73,7 @@ const Home = () => {
 						</p>
 					</li>
 				</ul>
-
-				<div className='home-apresentacao'>
-					<div className='limitar-container'>
-					<h3>Estacionamentos recomendados</h3>
-						<Carrossel />
-					</div>
-				</div>
-
-				<h2 className='titulo-sessao'>
-					Por que contratar nossos <b>estacionamentos</b>?
-				</h2>
-
-				<img
-					className='img-estacionamento'
-					src='assets/estacionamento.jpg'
-					alt='Imagem do uso de um estacionamento'
-					title='Imagem do uso de um estacionamento'
-				/>
+				
 
 				
 

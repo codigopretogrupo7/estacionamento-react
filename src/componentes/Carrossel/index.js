@@ -21,12 +21,13 @@ class Carrossel extends Component{
       initialSlide:0,
       responsive:[
         {
-          breakpoint: 900,
+          breakpoint: 990,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
             infinite: true,
-            dots: true
+            dots: true,
+            
           }
         },
         {
@@ -34,22 +35,27 @@ class Carrossel extends Component{
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: 0
+            initialSlide: 0,
+            centerMode: true,
+            arrows: false
+            
           }
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 0.1,
+            centerMode: true,
+            arrows: false,
+            centerPadding:'40px'
           } 
         }
       ]
 
     };
     return (
-     <div className = 'teste'>
-     <div className = 'carrossel'>
+     
         
         
         <Slider {...settings}>
@@ -104,8 +110,7 @@ class Carrossel extends Component{
           descricao='Vaga coberta.'
           />
         </Slider>
-      </div>
-      </div>
+     
     );
   }
 }
