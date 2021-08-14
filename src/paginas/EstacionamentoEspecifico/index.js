@@ -9,14 +9,18 @@ import api from '../../api';
 export default function EstacionamentoEspecifico(props) {
 	const [estacionamento, setEstacionamento] = useState([]);
 
-	useEffect(() => {
-		pegaEstacionamento();
-	}, []);
-
-	async function pegaEstacionamento() {
-		const { data } = await api.get(`/parkings/${props.match.params.id}`);
-		setEstacionamento(...estacionamento, [data]);
-	}
+	
+	
+	useEffect(() => {	
+		async function pegaEstacionamento() {
+			const { data } = await api.get(`/api/estacionamentos/list/id?id=${props.match.params.id}`);
+			setEstacionamento(...estacionamento, [data]);
+		}
+		pegaEstacionamento()
+	}, [estacionamento , props.match.params.id]);
+	
+	
+	
 
 	return (
 		<>

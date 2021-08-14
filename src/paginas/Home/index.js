@@ -40,6 +40,7 @@ const Home = () => {
 						<div className='icons'>
 							<img 
 							src="assets/icons/phone.svg"
+							alt="foto estacionamento"
 							classname="icons"/>
 						</div>
 
@@ -52,6 +53,7 @@ const Home = () => {
 						<div className='icons'>
 							<img 
 							src="assets/icons/cifrao.svg"
+							alt="foto estacionamento"
 							classname="icons"/>
 						</div>
 
@@ -64,6 +66,7 @@ const Home = () => {
 						<div className='icons'>
 							<img 
 							src="assets/icons/parking.svg"
+							alt="foto estacionamento"
 							classname="icons"/>
 						</div>
 

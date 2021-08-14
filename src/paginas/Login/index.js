@@ -6,7 +6,6 @@ import { Context } from '../../Context/AuthContext';
 import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
-import { Facebook } from '@material-ui/icons';
 
 
 const Login = () => {
