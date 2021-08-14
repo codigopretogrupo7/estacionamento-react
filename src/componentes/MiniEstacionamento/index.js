@@ -9,7 +9,7 @@ import {
 
 export default function MiniEstacionamento( props ){
   return(
-    <Grid xs={12} sm={12} md={6} lg={4} >
+    <Grid item xs={12} sm={12} md={6} lg={4} >
       <Box m={2} >
         <Card >
           <Link style={{textDecoration:"none", color:"black"}} to={{pathname:`/Estacionamento${props.id}`}} >

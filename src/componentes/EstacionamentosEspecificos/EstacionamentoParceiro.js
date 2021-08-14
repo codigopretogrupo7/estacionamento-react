@@ -28,7 +28,7 @@ export default function EstacionamentoParceiro(props) {
 			<Card style={{ width: '800px'}}>
 				<Box
 					display='flex'
-					justifyContent='center'
+					justifycontent='center'
 					alignItems='center'
 					flexDirection='column'
 				>

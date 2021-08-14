@@ -7,7 +7,6 @@ import {
   InputLabel, 
   Input, 
   InputAdornment, 
-  Checkbox,
   TextareaAutosize,
   TextField,
   IconButton,
@@ -29,7 +28,6 @@ export default function CadastroEstacionamento(){
   const [ senha, setSenha ]       = useState('')
   const [ enviar, setEnviar ]     = useState(false)
   const [ Ativado, setAtivado ]    = useState(false)
-	const [diaDaSemana, setDiaDaSemana] = useState([]);
 
 
   const [values, setValues] = React.useState({
@@ -99,9 +97,9 @@ export default function CadastroEstacionamento(){
 			}
     }
 
-    await api.post("/users", {
+    await api.post("/api/estacionamentos/add", {
       dados,headers:{
-        'Authorization':''
+        'Authorization':'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsdWR2aWFzbmFhYWEiLCJleHAiOjE2MjkwNjQyMzZ9.6z-pCxNUVe7alu9CJdOy82vDjpzNCjqQiTgbyvap7pYbq0rPO9B4MEYn84-z2Sp5IodwE1qHhvs1uxwhEBrgrw'
       }
     })
 
@@ -132,17 +130,6 @@ export default function CadastroEstacionamento(){
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
   };
-
-  function adicionaDia(event) {
-		let dia = event.target.value;
-
-		if (diaDaSemana.includes(dia)) {
-			diaDaSemana.splice(diaDaSemana.indexOf(dia), 1);
-			setDiaDaSemana([...diaDaSemana]);
-		} else {
-			setDiaDaSemana([...diaDaSemana, dia]);
-		}
-	}
 
   return(
     <div className='tamanho'>
@@ -265,110 +252,14 @@ export default function CadastroEstacionamento(){
 							</Grid>
 						</>
 
-						{/* Dias e Horarios de funcionamento, numero de vagas*/}
+						{/* Horarios de funcionamento, numero de vagas*/}
 						<>
-							<Box mt={7} ml={4} mb={1}>
-								<p>Quais os dias de funcionamento do Estacionamento</p>
-							</Box>
-							<Grid
-								container
-								direction='row'
-								justify='center'
-								alignItems='center'
-								xs={12}
-							>
-								<Grid
-									container
-									direction='row'
-									justify='flex-end'
-									alignItems='center'
-									xs={7}
-								>
-									<>
-										<Checkbox
-											id='Segunda-Feira'
-											name='Segunda-Feira'
-											value='Segunda-Feira'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Segunda-Feira'>
-											Segunda-Feira |
-										</InputLabel>
-									</>
-									<>
-										<Checkbox
-											id='Terca-Feira'
-											name='Terca-Feira'
-											value='Terca-Feira'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Terca-Feira'>Terca-Feira |</InputLabel>
-									</>
-									<>
-										<Checkbox
-											id='Quarta-Feira'
-											name='Quarta-Feira'
-											value='Quarta-Feira'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Quarta-Feira'>
-											Quarta-Feira |
-										</InputLabel>
-									</>
-									<>
-										<Checkbox
-											id='Quinta-Feira'
-											name='Quinta-Feira'
-											value='Quinta-Feira'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Quinta-Feira'>
-											Quinta-Feira |
-										</InputLabel>
-									</>
-								</Grid>
-								<Grid
-									container
-									direction='row'
-									justify='flex-start'
-									alignItems='center'
-									xs={5}
-								>
-									<>
-										<Checkbox
-											id='Sexta-Feira'
-											name='Sexta-Feira'
-											value='Sexta-Feira'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Sexta-Feira'>Sexta-Feira |</InputLabel>
-									</>
-									<>
-										<Checkbox
-											id='Sabado'
-											name='Sabado'
-											value='Sabado'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Sabado'>Sábado |</InputLabel>
-									</>
-									<>
-										<Checkbox
-											id='Domingo'
-											name='Domingo'
-											value='Domingo'
-											onChange={adicionaDia}
-										/>
-										<InputLabel htmlFor='Domingo'>Domingo</InputLabel>
-									</>
-								</Grid>
-							</Grid>
-							<Grid xs={12} md={6}>
+							<Grid item xs={12} md={6}>
 								<Box mt={6} mb={6}>
 									<Grid
 										container
 										direction='column'
-										justifyContent='space-evenly'
+										justifycontent='space-evenly'
 										alignItems='center'
 									>
 										<>

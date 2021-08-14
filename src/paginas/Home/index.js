@@ -41,7 +41,7 @@ const Home = () => {
 							<img 
 							src="assets/icons/phone.svg"
 							alt="foto estacionamento"
-							classname="icons"/>
+							className="icons"/>
 						</div>
 
 						<h3>Na palma da sua mão</h3>
@@ -54,7 +54,7 @@ const Home = () => {
 							<img 
 							src="assets/icons/cifrao.svg"
 							alt="foto estacionamento"
-							classname="icons"/>
+							className="icons"/>
 						</div>
 
 						<h3>Compare e economize</h3>
@@ -67,7 +67,7 @@ const Home = () => {
 							<img 
 							src="assets/icons/parking.svg"
 							alt="foto estacionamento"
-							classname="icons"/>
+							className="icons"/>
 						</div>
 
 						<h3>Comodidade</h3>
