@@ -7,6 +7,7 @@ import Home from '../paginas/Home';
 import Contato from '../paginas/Contato';
 import Login from '../paginas/Login';
 import CadastroEstacionamento from '../componentes/FormulariosCadastro/Estacionamento/index';
+import CadastroVeiculo from '../componentes/FormulariosCadastro/Veiculo/index';
 import VagasEstacionamento from '../paginas/VagasEstacionamento/';
 import Cadastro from '../paginas/Cadastro';
 import PagesParkingSearch from '../paginas/Search/Search';
@@ -54,6 +55,7 @@ const Rotas = () => (
                     <CustomRoute isPrivate exact path='/Vagas' component={ VagasEstacionamento } />
                     <CustomRoute exact path='/Estacionamento:id' component={ EstacionamentoEspecifico } />
                     <CustomRoute exact path='/Checkin' component={ Checkin } />
+                    <CustomRoute exact path='/CadastroVeiculo' component={ CadastroVeiculo } />
                     {/* <Route exact path='/Checkout' component={ Checkout } /> */}
 
                     

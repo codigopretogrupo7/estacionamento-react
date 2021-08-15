@@ -1,54 +1,78 @@
-import React, { useContext, useState } from 'react';
+import React,{ useState } from 'react'
+import { 
+  Container, 
+  Button, 
+  Grid, 
+  FormControl, 
+  InputLabel, 
+  Input, 
+  InputAdornment, 
+  TextareaAutosize,
+  TextField,
+  IconButton,
+  Box
+} from '@material-ui/core/'
 
-import { Grid, FormControl, InputLabel, Input } from '@material-ui/core/';
+import Visibility from '@material-ui/icons/Visibility';
+import VisibilityOff from '@material-ui/icons/VisibilityOff';
+import './estilo.css';
+import api from '../../../api'
 
-import { Context } from '../../../Context/SubmitCar';
 
-export default function FormularioVeiculo(props) {
-	const [modelo, setModelo] = useState('');
-	const [cor, setCor] = useState('');
-	const [placa, setPlaca] = useState('');
-	const { getCar } = useContext(Context);
+export default function CadastroVeiculo(){
 
-	getCar(modelo, cor, placa);
+  return(
+    <div className='tamanho'>
+			<Container fixed style={{ textAlign: 'left' }}>
+				<Box mt={7} ml={2} mb={3}>
+					<p>	Preencha as informações do seu veiculo</p>
+				</Box>
+				<form>
+					<Grid container spacing={6}>
+						
+							<Grid item xs={12} md={3}>
+								<FormControl fullWidth>
+									<InputLabel htmlFor='modelo'>Modelo</InputLabel>
+									<Input id='modelo' name='modelo' type='text' />
+								</FormControl>
+							</Grid>
 
-	return (
-		<>
-			<Grid item xs={12} md={4}>
-				<FormControl fullWidth>
-					<InputLabel htmlFor={'modelo' + props.numero}>
-						Modelo {props.numero}
-					</InputLabel>
-					<Input
-						id={'modelo' + props.numero}
-						name={'modelo' + props.numero}
-						type='text'
-						onChange={(event) => setModelo(event.target.value)}
-					/>
-				</FormControl>
-			</Grid>
-			<Grid item xs={12} md={4}>
-				<FormControl fullWidth>
-					<InputLabel htmlFor={'cor' + props.numero}>Cor</InputLabel>
-					<Input
-						id={'cor' + props.numero}
-						name={'cor' + props.numero}
-						type='text'
-						onChange={(event) => setCor(event.target.value)}
-					/>
-				</FormControl>
-			</Grid>
-			<Grid item xs={9} md={3}>
-				<FormControl fullWidth>
-					<InputLabel htmlFor={'placa' + props.numero}>Placa</InputLabel>
-					<Input
-						id={'placa' + props.numero}
-						name={'placa' + props.numero}
-						type='text'
-						onChange={(event) => {setPlaca(event.target.value)}}
-					/>
-				</FormControl>
-			</Grid>
-		</>
-	);
+
+							<Grid item xs={12} md={4}>
+								<FormControl fullWidth>
+									<InputLabel htmlFor='placa'>Placa</InputLabel>
+									<Input id='placa' name='placa' type='text' />
+								</FormControl>
+							</Grid>
+
+
+							<Grid item xs={12} md={2}>
+								<FormControl fullWidth>
+									<InputLabel htmlFor='cor'>Cor</InputLabel>
+									<Input id='cor' name='cor' type='text' />
+								</FormControl>
+							</Grid>
+
+							<Grid 
+								item
+								xs={12}
+								md={12}
+								style={{
+									display: 'flex',
+									justifyContent: 'left',
+									alignItems: 'left',
+									marginBottom: '15px',
+								}}
+							>
+
+									<Button type='submit' variant='contained'>
+										Cadastrar
+									</Button>
+								
+							</Grid>
+					</Grid>
+				</form>
+			</Container>
+		</div>
+  )
 }
