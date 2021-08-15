@@ -50,7 +50,7 @@ export default function Navbar () {
 
                         <li>
                             {authenticated  ?  
-                                <span className="topo-link" onClick={handleLogout}>Sair</span>:                                   
+                                <span className="nav-links" onClick={handleLogout}>Sair</span>:                                   
                                 <Link className="nav-links" to={'/login'} onClick={handleClick}>
                                     Login
                                 </Link>
