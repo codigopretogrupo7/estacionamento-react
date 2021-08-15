@@ -1,3 +1,6 @@
+import React,{ useContext, useEffect } from 'react'; 
+import { Context } from '../../Context/AuthContext';
+
 import {
   Card, 
   CardActions, 
@@ -15,6 +18,15 @@ import Edit from '@material-ui/icons/Create';
 
 
 export default function Vaga(props){
+
+  const { redirect, alterRedirect } = useContext(Context)
+  
+  useEffect(()=>{
+    if(redirect){
+      alterRedirect(false)
+    }
+  },[redirect,alterRedirect])
+  
   
   return(
     <Grid item key={props.idVaga} >

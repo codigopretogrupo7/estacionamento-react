@@ -1,14 +1,29 @@
+
 .rodape {
     background-color:#0077B6;
     color: #fff;
-    height: 80px;
+    height: auto;
     display: flex;
     align-items: center;
     border: 10px;
     border-top: #fff;
-    display:flexbox;
+    margin-top:0px;
+    top: 50%;
+    bottom:0;
+    position:inherit;
+    width: 100%;
+
 }
 
 a{
-    padding-left:10px;
+    padding-left:1px;
+    
+}
+
+#footer{
+    margin-top: 0px;
+}
+
+.limitador{
+    margin: 0px;
 }

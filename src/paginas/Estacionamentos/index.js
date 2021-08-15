@@ -1,80 +1,49 @@
 import MiniEstacionamento from '../../componentes/MiniEstacionamento'
 import { Container, Box } from '@material-ui/core'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import Rodape from '../../componentes/Rodape';
 
-
+import api from '../../api'
 
 
 export default function Estacionamentos(){
 
-  const [ estacionamento ] = useState([
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-    {
-      Imagem:'./Estacionamento.jpg',
-      Nome:"Estacionamento dos sonhos",
-      Endereco:"Av Afonso de Sampaio e Sousa, 951",
-      Estado:"São Paulo - SP"
-    },
-  ])
+  const [ estacionamento, setEstacionamento ] = useState([])
+  
+  async function pegaEstacionamentos(){
+    const {data} = await api.get('/users')
+    const Estacionamentos = []
+    for( let i = 0 ; i < data.length ; i++ ){
+      if(data[i].mode === "Estacionamento"){
+        Estacionamentos.push(data[i])
+      }
+    }
+    setEstacionamento(Estacionamentos)
+  }
 
+
+  useEffect( () => {
+    pegaEstacionamentos()
+  },[])
 
   return(
     <>
       <Container maxWidth>
         <Box display="flex" flexWrap="wrap" justifyContent="center" >
           {estacionamento && estacionamento.map(elemento => (
-            <MiniEstacionamento imagem={elemento.Imagem} nome={elemento.Nome} Endereco={elemento.Endereco} estado={elemento.Estado} />
+            <MiniEstacionamento 
+              id = {elemento.id}
+              imagem = "./Estacionamento.jpg"
+              nome={elemento.nomeDoEstacionamento} 
+              Endereco={elemento.endereco} 
+              num={elemento.numero}
+              estado={elemento.estado} 
+            />
           ))}
-        
         </Box>
       </Container>
+    <Rodape />
+
     </>
   )
 }

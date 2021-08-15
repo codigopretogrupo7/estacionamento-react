@@ -2,6 +2,8 @@ import FormularioUsuario from '../../componentes/FormulariosCadastro/UsuarioComu
 
 export default function Cadastro(){
   return(
-    <FormularioUsuario />
+    <>
+      <FormularioUsuario />
+    </>
   )
 }

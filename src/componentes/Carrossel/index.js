@@ -21,12 +21,13 @@ class Carrossel extends Component{
       initialSlide:0,
       responsive:[
         {
-          breakpoint: 893,
+          breakpoint: 990,
           settings: {
             slidesToShow: 2,
             slidesToScroll: 2,
             infinite: true,
-            dots: true
+            dots: true,
+            
           }
         },
         {
@@ -34,54 +35,82 @@ class Carrossel extends Component{
           settings: {
             slidesToShow: 1,
             slidesToScroll: 1,
-            initialSlide: 0
+            initialSlide: 0,
+            centerMode: true,
+            arrows: false
+            
           }
         },
         {
           breakpoint: 480,
           settings: {
             slidesToShow: 1,
-            slidesToScroll: 1
+            slidesToScroll: 0.1,
+            centerMode: true,
+            arrows: false,
+            centerPadding:'40px'
           } 
         }
       ]
 
     };
     return (
-     <div className = 'teste'>
-     <div className = 'carrossel'>
-        <h3>Estacionamentos recomendados</h3>
+     
+        
+        
         <Slider {...settings}>
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/garagem.jpg' estacionamento='Estacionamento estrela' 
+          titulo='Estrela estacionamento' rua = 'Rua Campo Novo'
+          bairro = 'Pinheiros' cidade='São Paulo'
+          diaria = '45,00 '
+          descricao='Vaga coberta.'
+          />
+        
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/estacionamento2.jpg' 
+          titulo='Inpark estacionameto' rua = 'Rua salvador'
+          bairro = 'Zona Norte' cidade='São Paulo'
+          diaria = '40,00 '
+          descricao='Vaga coberta.'
+          />
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/estacionamento1.jpg' 
+          titulo='Estapar' rua = 'Rua Arcipreste Paiva'
+          bairro = 'São Domingos' cidade='São Paulo'
+          diaria = '35,00 '
+          descricao='Vaga coberta.'
+          />
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/estacionamento3.jpg' 
+          titulo='MultiPark Itaberaba' rua = 'Rua Jaguabara'
+          bairro = 'Itaberaba' cidade='São Paulo'
+          diaria = '35,00 '
+          descricao='Vaga coberta.'
+          />
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/estacionamento4.jpg' 
+          titulo='Campo de Marte' rua = 'Aeroporto Campo de Marte'
+          bairro = 'Rodovia Helio smith' cidade='São Paulo'
+          diaria = '55,00 '
+          descricao='Vaga descoberta.'
+          />
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+         imagem='assets/estacionamentos/estacionamento5.png' 
+         titulo='Estapar' rua = 'Rua Coroneu Garcia'
+         bairro = 'Jardins' cidade='São Paulo'
+         diaria = '35,00 '
+         descricao='Vaga coberta.'
+         />
           <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
-          <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
-          <Card
-          imagem='assets/cliente01.png' estacionamento='Estacionamento1' 
-          titulo='Teste1' descricao='Lorem Lorem'/>
+          imagem='assets/estacionamentos/estacionamento6.jpg' 
+          titulo='Shopping estação' rua = 'Avenida Miguel Sutil'
+          bairro = 'Goiabeiras' cidade='São Paulo'
+          diaria = '35,00 '
+          descricao='Vaga coberta.'
+          />
         </Slider>
-      </div>
-      </div>
+     
     );
   }
 }

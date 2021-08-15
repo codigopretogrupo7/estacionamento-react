@@ -1,69 +1,142 @@
-import React from 'react';
+import React, { useContext, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-
+import { Context } from '../../Context/AuthContext';
 import Carrossel from '../../componentes/Carrossel';
+import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
 
-const Home = (  ) => {
-  return (
-    <section>
+const Home = () => {
+	const { redirect, alterRedirect } = useContext(Context);
 
-      <div className="home-apresentacao">
-        <div className="limitar-container">
-          <Carrossel/>
-        </div>
-      </div>
+	useEffect(() => {
+		if (redirect) {
+			alterRedirect(false);
+		}
+	}, [redirect, alterRedirect]);
 
-      <h2 className="titulo-sessao">Por que contratar nossos <b>estacionamentos</b>?</h2>
+	return (
+		<>
+			<section>
+				<h1>Aproveite a liberdade de chegar onde e quando você quiser.</h1>
 
-      <img className="img-estacionamento" src="assets/estacionamento.jpg" alt="Imagem do uso de um estacionamento" title="Imagem do uso de um estacionamento"/>
+				
 
-      <ul className="lista-sobre-estacionamento limitar-container">
-        <li>
-          <h3>Lorem ipsum</h3>
-          <p>Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos nobis eveniet id eaque voluptas. Et consectetur itaque est commodi provident eum quia temporibus aut aliquam optio.</p>
-        </li>
-        <li>
-          <h3>Lorem ipsum</h3>
-          <p>Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos nobis eveniet id eaque voluptas. Et consectetur itaque est commodi provident eum quia temporibus aut aliquam optio.</p>
-        </li>
-        <li>
-          <h3>Lorem ipsum</h3>
-          <p>Lorem ipsum dolor sit amet. Ut odio totam hic doloribus totam eos nobis eveniet id eaque voluptas. Et consectetur itaque est commodi provident eum quia temporibus aut aliquam optio.</p>
-        </li>
-      </ul>      
-      
-      <div className="home-depoimentos">
-        <h2 className="titulo-sessao">Veja o que nossos <b>clientes</b> estão falando...</h2>
+				<div className='home-apresentacao'>
+					<div className='limitar-container'>
+					<h3>Estacionamentos recomendados</h3>
+						<Carrossel />
+					</div>
+				</div>
 
-        <ul className="lista-depoimentos">
-          <li>
-            <img className="img-estacionamento" src="assets/cliente01.png" alt="Cliente Alberto" title="Cliente Alberto"/>
-            <p>Alberto</p>
-            <p>A tranquilidade de encontrar um estacionamento de confiança sempre que preciso.</p>
-          </li>
+				
 
-          <li>
-            <img className="img-estacionamento" src="assets/cliente02.png" alt="Cliente Eliana" title="Cliente Eliana"/>
-            <p>Eliana</p>
-            <p>Sempre me preocupava em ter que estacionar meu carro na rua, mas agora consigo deixa-lo em estacionamentos próximos e não me preocupar.</p>
-          </li>
+				<h2 className='titulo-sessao'>
+					Por que contratar nossos <b>estacionamentos</b>?
+				</h2>
 
-          <li>
-            <img className="img-estacionamento" src="assets/cliente03.png" alt="Cliente Carla" title="Cliente Carla"/>
-            <p>Carla</p>
-            <p>Começei a usar ano passado e estou adorando.</p>
-          </li>
-        </ul>
-      </div>
+				<ul className='lista-sobre-estacionamento limitar-container'>
+					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/phone.svg"
+							alt="foto estacionamento"
+							className="icons"/>
+						</div>
 
-      <div>
-        <Link to="/contato" className="btn-contato">Entrar em contato</Link>
+						<h3>Na palma da sua mão</h3>
+						<p>
+							Encontre o estacionamento mais perto de você e reserve sua vaga, sabendo exatamente o valor que irá pagar, tudo na palma da sua mão.
+						</p>
+					</li>
+					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/cifrao.svg"
+							alt="foto estacionamento"
+							className="icons"/>
+						</div>
 
-      </div>
-    </section>
-  );
-}
+						<h3>Compare e economize</h3>
+						<p>
+							Saiba exatamente o valar que irá pagar, seja por 5 minutos, 1 hora, 1 mês. Encontre o menor preço. Pague o menor preço.
+						</p>
+					</li>
+					<li>
+						<div className='icons'>
+							<img 
+							src="assets/icons/parking.svg"
+							alt="foto estacionamento"
+							className="icons"/>
+						</div>
+
+						<h3>Comodidade</h3>
+						<p>
+						Temos uma grande rede de estacionamentos credenciados para atender a sua necessidade. Escolha a unidade mais próxima a você e  conquiste a comodidade.
+						</p>
+					</li>
+				</ul>
+				
+
+				
+
+				<div className='home-depoimentos'>
+					<h2 className='titulo-sessao'>
+						Veja o que nossos <b>clientes</b> estão falando...
+					</h2>
+
+					<ul className='lista-depoimentos'>
+						<li>
+							<img
+								className='img-estacionamento'
+								src='assets/cliente01.png'
+								alt='Cliente Alberto'
+								title='Cliente Alberto'
+							/>
+							<p>Alberto</p>
+							<p>
+								A tranquilidade de encontrar um estacionamento de confiança
+								sempre que preciso.
+							</p>
+						</li>
+
+						<li>
+							<img
+								className='img-estacionamento'
+								src='assets/cliente02.png'
+								alt='Cliente Eliana'
+								title='Cliente Eliana'
+							/>
+							<p>Eliana</p>
+							<p>
+								Sempre me preocupava em ter que estacionar meu carro na rua, mas
+								agora consigo deixa-lo em estacionamentos próximos e não me
+								preocupar.
+							</p>
+						</li>
+
+						<li>
+							<img
+								className='img-estacionamento'
+								src='assets/cliente03.png'
+								alt='Cliente Carla'
+								title='Cliente Carla'
+							/>
+							<p>Carla</p>
+							<p>Começei a usar ano passado e estou adorando.</p>
+						</li>
+					</ul>
+				</div>
+
+				<div>
+					<Link to='/contato' className='btn-contato'>
+						Entrar em contato
+					</Link>
+				</div>
+			</section>
+			<Rodape />
+		</>
+	);
+};
 
 export default Home;

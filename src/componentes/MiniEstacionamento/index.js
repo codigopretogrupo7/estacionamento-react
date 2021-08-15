@@ -9,10 +9,10 @@ import {
 
 export default function MiniEstacionamento( props ){
   return(
-    <Grid xs={12} sm={12} md={6} lg={4} >
+    <Grid item xs={12} sm={12} md={6} lg={4} >
       <Box m={2} >
         <Card >
-          <Link style={{textDecoration:"none", color:"black"}} to="/EstacionamentoEspecifico">
+          <Link style={{textDecoration:"none", color:"black"}} to={{pathname:`/Estacionamento${props.id}`}} >
             <Box display="flex" p={2}>
               <Box >
                 <img
@@ -34,10 +34,7 @@ export default function MiniEstacionamento( props ){
 
                   <Box mt={3}>
                     <p>
-                      {props.Endereco}
-                    </p>
-                    <p>
-                      {props.estado}
+                      {props.Endereco}, {props.num} - {props.estado}
                     </p>
                   </Box>
               </CardContent>
