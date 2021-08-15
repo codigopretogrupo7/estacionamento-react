@@ -1,4 +1,4 @@
-# Api Java spring-boot para a aplicação TemVaga.
+# Front-end React da aplicação TemVaga.
 
 #### *TemVaga* é o projeto Integrador do grupo 07 da Digital House Codigo preto.<br/>
 O **_TemVaga_** tem como meta ser uma ferramenta que auxilia na forma como estacionamos nossos veículos hoje, com a possibilidade de reservar uma vaga previamente no estacionamento mais próximo do seu destino.<br/>
