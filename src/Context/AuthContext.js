@@ -1,74 +1,93 @@
-import React, { createContext, useEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react';
 import api from '../api';
 const Context = createContext();
 
-function AuthProvider({ children }){
-  const [ authenticated, setAuthenticated ] = useState(false)
-  const [ redirect, setRedirect ] = useState(false)
-  const [ nome, setNome ] = useState('')
-  const [ mode, setMode ] = useState('')
+function AuthProvider({ children }) {
+	const [authenticated, setAuthenticated] = useState(false);
+	const [redirect, setRedirect] = useState(false);
+	const [nome, setNome] = useState('');
+	const [mode, setMode] = useState('');
+	const [id , setId] = useState('')
 
-  useEffect(()=>{
-    const dados = localStorage.getItem('data')
-    
-    if(dados){
-      const json = JSON.parse(dados)
-      
-      api.defaults.headers.Authorization = `Bearer ${json}`
-      
-      setNome(json[0].name)
-      setMode(json[0].mode)
-      setAuthenticated(true)
-    }
-  },[])
+	useEffect(() => {
+		const info = localStorage.getItem('data');
 
+		if (info) {
+			doEffect(info)
+		}
+	}, []);
 
-  async function handleLogin(email, senha){
-    const { data } = await api.get(`users?email=${email}&&senha=${senha}`)
-      if( data.length > 0 ){
-        const dados = JSON.stringify(data)
-        
-        localStorage.setItem('data', dados)
-        api.defaults.headers.Authorization = `Bearer ${data}`
-        
-        setNome(data[0].name)
-        setMode(data[0].mode)
-        setAuthenticated(true)
-        alterRedirect(true)
-      }else{
-        return
-      }
-  }
+	async function doEffect(info){
+		const result = JSON.parse(atob(info.split('.')[1]));
+		const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
+		api.defaults.headers.Authorization = `${info}`;
 
-  async function handleLogout(){
-    setAuthenticated(false)
-    
-    localStorage.removeItem('data')
-    api.defaults.headers.Authorization = undefined
-    
-    alterRedirect(true)
-  }
+		setNome(data.name);
+		setMode(data.mode);
+		setId(data.id)
+		setAuthenticated(true);
+	}
 
+	async function handleLogin(email, senha) {
+		const usuario = {
+			nome: email,
+			senha: senha,
+		};
+		const datas = await api.post('/login', usuario);
+		const token = datas.headers.token
+		const result = JSON.parse(atob(token.split('.')[1]));
 
-  async function alterRedirect(parametro){
-    await setRedirect(parametro)
-  }
+		pegaDadosDoUsuario(result, token)
+		
+	}
 
+	async function pegaDadosDoUsuario(result, token){
+		const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
+		const dados = JSON.stringify(data);
 
-  return(
-    <Context.Provider value={{ 
-      authenticated, 
-      handleLogin, 
-      handleLogout, 
-      redirect, 
-      alterRedirect, 
-      nome,
-      mode
-    }}>
-      { children }
-    </Context.Provider>
-  )
+		if (dados.length > 0) {
+			localStorage.setItem('data', token);
+			api.defaults.headers.Authorization = `${token}`;
 
+			setNome(data.nome);
+			setMode(data.mode);
+			setId(data.id);
+			setAuthenticated(true);
+			alterRedirect(true);
+		} else {
+			return;
+		}
+	}
+
+	async function handleLogout() {
+		setAuthenticated(false);
+
+		localStorage.removeItem('data');
+		delete api.defaults.headers.Authorization;
+
+		alterRedirect(true);
+	}
+
+	async function alterRedirect(parametro) {
+		await setRedirect(parametro);
+	}
+
+	return (
+		<Context.Provider
+			value={{
+				authenticated,
+				handleLogin,
+				handleLogout,
+				redirect,
+				alterRedirect,
+				nome,
+				mode,
+				id,
+			}}
+		>
+			{children}
+		</Context.Provider>
+	);
 }
 
-export { Context, AuthProvider }
+export { Context, AuthProvider };

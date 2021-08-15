@@ -96,12 +96,8 @@ export default function CadastroEstacionamento(){
 				"id": 1
 			}
     }
-
-    await api.post("/api/estacionamentos/add", {
-      dados,headers:{
-        'Authorization':'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJsdWR2aWFzbmFhYWEiLCJleHAiOjE2MjkwNjQyMzZ9.6z-pCxNUVe7alu9CJdOy82vDjpzNCjqQiTgbyvap7pYbq0rPO9B4MEYn84-z2Sp5IodwE1qHhvs1uxwhEBrgrw'
-      }
-    })
+		
+    await api.post("/api/estacionamentos/add",dados)
 
     alert('Formulario Enviado, aguarde nosso email de confirmação!')
   }
