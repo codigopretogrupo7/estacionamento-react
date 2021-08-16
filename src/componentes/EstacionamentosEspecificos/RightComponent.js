@@ -1,4 +1,4 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import { Context } from '../../Context/AuthContext'
 
 import {
@@ -13,9 +13,34 @@ import {
 	TableRow,
 	Paper,
 } from '@material-ui/core';
+
 import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
-export default function Infos(props) {
+import api from '../../api';
+
+
+
+export default function RightComponent(props) {
+	const [totalVagasLivres , setTotalVagasLivres] = useState('')
+	const ids = props.id
+
+	useEffect(() => {
+		if(ids !== undefined){
+			vagasLivres()
+		}
+	})
+
+	async function vagasLivres(){
+		const { data } = await api.get(`/api/vagas/vagaslivres?id=${ids}`)
+		setTotalVagasLivres(data)
+	}
+
+	async function reservaVaga(){
+		const veiculo = {"id":1}
+		const {data} = await api.post(`/api/vagas/reservavaga?id=${props.id}`,veiculo)	
+		vagasLivres()	
+		alert(`A vaga ${data.numeroVaga} esta reservada em seu nome pelo periodo de 2 horas`);
+	}
 
   const { authenticated, mode } = useContext(Context)
 
@@ -24,7 +49,7 @@ export default function Infos(props) {
 			<Box m={5} style={{ textAlign: 'justify' }}>
 
         <p>Nome: {props.nomeDoEstacionamento}</p>
-        <p>Numero de vagas livres: 10 / {props.numeroDeVagas}</p>
+        <p>Numero de vagas livres: {totalVagasLivres} / {props.numeroDeVagas}</p>
 
 				<p>
 					Serviços do local:<br/> <CheckBoxIcon style={{ color: 'green' }} />{' '}
@@ -46,10 +71,10 @@ export default function Infos(props) {
 						</TableHead>
 						<TableBody>
 							<TableRow>
-								<TableCell>15,00</TableCell>
-								<TableCell>16,00</TableCell>
-								<TableCell>17,00</TableCell>
-								<TableCell>25,00</TableCell>
+								<TableCell>{props.valorHora}</TableCell>
+								<TableCell>{props.valorHora + props.valorAdicional}</TableCell>
+								<TableCell>{props.valorHora + props.valorAdicional + props.valorAdicional}</TableCell>
+								<TableCell>{props.valorDiaria}</TableCell>
 							</TableRow>
 						</TableBody>
 					</Table>
@@ -58,15 +83,11 @@ export default function Infos(props) {
 
 				<Box mb={5}>
           {
-            authenticated && mode === "client" ?
+            authenticated && mode === "cliente" ?
             <Button
 						variant='contained'
 						color='primary'
-						onClick={() => {
-              alert(
-                'Uma vaga em seu nome esta reservada Pelo periodo de 2 horas'
-							);
-						}}
+						onClick={reservaVaga}
 					>
 						Reservar Vaga
 					</Button>
