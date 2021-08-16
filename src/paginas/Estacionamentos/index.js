@@ -11,7 +11,8 @@ export default function Estacionamentos(){
   const [ estacionamento, setEstacionamento ] = useState([])
   
   async function pegaEstacionamentos(){
-    const {data} = await api.get('/users')
+    const {data} = await api.get('/api/estacionamentos/list')
+    
     const Estacionamentos = []
     for( let i = 0 ; i < data.length ; i++ ){
       if(data[i].mode === "Estacionamento"){

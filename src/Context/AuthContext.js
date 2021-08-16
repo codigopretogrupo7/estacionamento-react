@@ -4,15 +4,13 @@ const Context = createContext();
 
 function AuthProvider({ children }) {
 	const [authenticated, setAuthenticated] = useState(false);
-	const [redirect, setRedirect] = useState(false);
 	const [nome, setNome] = useState('');
 	const [mode, setMode] = useState('');
 	const [id , setId] = useState('')
 
 	useEffect(() => {
 		const info = localStorage.getItem('data');
-
-		if (info) {
+		if(info) {
 			doEffect(info)
 		}
 	}, []);
@@ -22,7 +20,7 @@ function AuthProvider({ children }) {
 		const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
 		api.defaults.headers.Authorization = `${info}`;
 
-		setNome(data.name);
+		setNome(data.nome);
 		setMode(data.mode);
 		setId(data.id)
 		setAuthenticated(true);
@@ -53,7 +51,6 @@ function AuthProvider({ children }) {
 			setMode(data.mode);
 			setId(data.id);
 			setAuthenticated(true);
-			alterRedirect(true);
 		} else {
 			return;
 		}
@@ -64,12 +61,6 @@ function AuthProvider({ children }) {
 
 		localStorage.removeItem('data');
 		delete api.defaults.headers.Authorization;
-
-		alterRedirect(true);
-	}
-
-	async function alterRedirect(parametro) {
-		await setRedirect(parametro);
 	}
 
 	return (
@@ -78,8 +69,6 @@ function AuthProvider({ children }) {
 				authenticated,
 				handleLogin,
 				handleLogout,
-				redirect,
-				alterRedirect,
 				nome,
 				mode,
 				id,

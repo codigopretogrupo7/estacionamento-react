@@ -11,13 +11,11 @@ const Login = () => {
 	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
 
-	const { redirect, handleLogin, mode } = useContext(Context);
+	const { authenticated, handleLogin } = useContext(Context);
 
-	if (redirect && mode === 'cliente') {
+	if (authenticated) {
 		return <Redirect to='/' />;
-	} else if (redirect && mode === 'Estacionamento') {
-		return <Redirect to='/Vagas' />;
-	}
+	} 
 
 	return (
 		<>
