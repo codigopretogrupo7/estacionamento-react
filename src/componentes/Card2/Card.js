@@ -8,20 +8,20 @@ import { Link } from 'react-router-dom'
     <div className='card' >
       <Link style={{textDecoration:"none", color:"black"}} to={{pathname:`/Estacionamento${parking.id}`}} >
 
-        <img className="img-estacionamentocard"  src={parking.imageUrl} alt={parking.Nome_Estacionamento} />
+        <img className="img-estacionamentocard"  src={parking.imageUrl} alt={parking.nomeEstacionamento} />
           <div className='container'>
             <div className='titulo'>
-              <h4>{parking.Nome_Estacionamento}</h4>
+              <h4>{parking.nomeEstacionamento}</h4>
             </div>
             <div className='endereco'>
-              <p className='rua'>{parking.Rua}</p>
-              <span>{parking.Bairro} - {parking.Cidade}</span>
+              <p className='rua'>{parking.logradouro}</p>
+              <span>{parking.bairro} - {parking.cidade}</span>
             </div>
             <div className='valor'>
-              <span>Diaria R${parking.Valor_hora}</span>
+              <span>Diaria R${parking.vlDiaria}</span>
             </div>
             <div className='descricao'>
-              <b>{parking.Descricao}</b>             
+              <b>{parking.descricao}</b>             
             </div>
           </div>      
       </Link>
