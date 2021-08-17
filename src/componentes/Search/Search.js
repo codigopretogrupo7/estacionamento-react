@@ -17,7 +17,7 @@ const ParkingSearch = () => {
             params.Nome_Estacionamento_like = search;
         }
         
-        api.get('/parkings',{params})
+        api.get('api/estacinamentos/list',{params})
         .then((response) => {
           setParkings(response.data);
         });
