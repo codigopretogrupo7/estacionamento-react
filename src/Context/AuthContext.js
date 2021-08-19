@@ -19,11 +19,11 @@ function AuthProvider({ children }) {
 		const result = JSON.parse(atob(info.split('.')[1]));
 		const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
 		api.defaults.headers.Authorization = `${info}`;
+		setAuthenticated(true);
+		setMode(data.mode);
 
 		setNome(data.nome);
-		setMode(data.mode);
 		setId(data.id)
-		setAuthenticated(true);
 	}
 
 	async function handleLogin(email, senha) {
@@ -45,12 +45,19 @@ function AuthProvider({ children }) {
 
 		if (dados.length > 0) {
 			localStorage.setItem('data', token);
+
+
 			api.defaults.headers.Authorization = `${token}`;
 
-			setNome(data.nome);
-			setMode(data.mode);
-			setId(data.id);
+			
 			setAuthenticated(true);
+			setMode(data.mode);
+			setNome(data.nome);
+			setId(data.id);
+
+			await localStorage.setItem('mode',data.mode)
+			await localStorage.setItem('Authenticated',true)
+
 		} else {
 			return;
 		}
@@ -60,7 +67,11 @@ function AuthProvider({ children }) {
 		setAuthenticated(false);
 
 		localStorage.removeItem('data');
+		localStorage.removeItem('mode')
+		localStorage.removeItem('Authenticated')
 		delete api.defaults.headers.Authorization;
+		setNome('');
+		setMode('');
 	}
 
 	return (

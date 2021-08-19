@@ -1,344 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
-import Vaga from '../../componentes/Vaga';
-
 import { Container, Grid, Box } from '@material-ui/core';
+
 import Rodape from '../../componentes/Rodape';
+import Vaga from '../../componentes/Vaga';
+import api from '../../api';
 
 export default function VagasEstacionamento() {
 	const [vagas, setVagas] = useState([]);
-	const [pausa, setPausa] = useState(false);
-	const [vagasOcupadas, setVagasOcupadas] = useState(0);
+	const [vagasLivres, setVagasLivres] = useState(0);
+	const [num, setNum] = useState(0)
 
 	useEffect(() => {
-		carregaVagas();
-	}, []);
-
-	function carregaVagas() {
-		let Vagas = [
-			{
-				idVaga: 1,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A1',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 2,
-				idEstacionamento: 1,
-				idOcupante: 1,
-				numeroVaga: 'A2',
-				vazia: false,
-				nomeOcupante: 'Lucas Damasceno',
-				placaOcupante: 'ABC-0000',
-				modeloOcupante: 'BMW',
-			},
-			{
-				idVaga: 3,
-				idEstacionamento: 1,
-				idOcupante: 2,
-				numeroVaga: 'A3',
-				vazia: false,
-				nomeOcupante: 'Joyce Andrade',
-				placaOcupante: 'DEF-1111',
-				modeloOcupante: 'NOVO UNO',
-			},
-			{
-				idVaga: 4,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A4',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 5,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A5',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 6,
-				idEstacionamento: 1,
-				idOcupante: 3,
-				numeroVaga: 'A6',
-				vazia: false,
-				nomeOcupante: 'Boni',
-				placaOcupante: 'JKL-1582',
-				modeloOcupante: 'Carro do debiloide',
-			},
-			{
-				idVaga: 1,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A1',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 2,
-				idEstacionamento: 1,
-				idOcupante: 1,
-				numeroVaga: 'A2',
-				vazia: false,
-				nomeOcupante: 'Lucas Damasceno',
-				placaOcupante: 'ABC-0000',
-				modeloOcupante: 'BMW',
-			},
-			{
-				idVaga: 3,
-				idEstacionamento: 1,
-				idOcupante: 2,
-				numeroVaga: 'A3',
-				vazia: false,
-				nomeOcupante: 'Joyce Andrade',
-				placaOcupante: 'DEF-1111',
-				modeloOcupante: 'NOVO UNO',
-			},
-			{
-				idVaga: 4,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A4',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 5,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A5',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 6,
-				idEstacionamento: 1,
-				idOcupante: 3,
-				numeroVaga: 'A6',
-				vazia: false,
-				nomeOcupante: 'Boni',
-				placaOcupante: 'JKL-1582',
-				modeloOcupante: 'Carro do debiloide',
-			},
-			{
-				idVaga: 1,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A1',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 2,
-				idEstacionamento: 1,
-				idOcupante: 1,
-				numeroVaga: 'A2',
-				vazia: false,
-				nomeOcupante: 'Lucas Damasceno',
-				placaOcupante: 'ABC-0000',
-				modeloOcupante: 'BMW',
-			},
-			{
-				idVaga: 3,
-				idEstacionamento: 1,
-				idOcupante: 2,
-				numeroVaga: 'A3',
-				vazia: false,
-				nomeOcupante: 'Joyce Andrade',
-				placaOcupante: 'DEF-1111',
-				modeloOcupante: 'NOVO UNO',
-			},
-			{
-				idVaga: 4,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A4',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 5,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A5',
-				vazia: false,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 6,
-				idEstacionamento: 1,
-				idOcupante: 3,
-				numeroVaga: 'A6',
-				vazia: false,
-				nomeOcupante: 'Boni',
-				placaOcupante: 'JKL-1582',
-				modeloOcupante: 'Carro do debiloide',
-			},
-			{
-				idVaga: 1,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A1',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 2,
-				idEstacionamento: 1,
-				idOcupante: 1,
-				numeroVaga: 'A2',
-				vazia: false,
-				nomeOcupante: 'Lucas Damasceno',
-				placaOcupante: 'ABC-0000',
-				modeloOcupante: 'BMW',
-			},
-			{
-				idVaga: 3,
-				idEstacionamento: 1,
-				idOcupante: 2,
-				numeroVaga: 'A3',
-				vazia: false,
-				nomeOcupante: 'Joyce Andrade',
-				placaOcupante: 'DEF-1111',
-				modeloOcupante: 'NOVO UNO',
-			},
-			{
-				idVaga: 4,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A4',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 5,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A5',
-				vazia: false,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 6,
-				idEstacionamento: 1,
-				idOcupante: 3,
-				numeroVaga: 'A6',
-				vazia: false,
-				nomeOcupante: 'Boni',
-				placaOcupante: 'JKL-1582',
-				modeloOcupante: 'Carro do debiloide',
-			},
-			{
-				idVaga: 1,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A1',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 2,
-				idEstacionamento: 1,
-				idOcupante: 1,
-				numeroVaga: 'A2',
-				vazia: false,
-				nomeOcupante: 'Lucas Damasceno',
-				placaOcupante: 'ABC-0000',
-				modeloOcupante: 'BMW',
-			},
-			{
-				idVaga: 3,
-				idEstacionamento: 1,
-				idOcupante: 2,
-				numeroVaga: 'A3',
-				vazia: false,
-				nomeOcupante: 'Joyce Andrade',
-				placaOcupante: 'DEF-1111',
-				modeloOcupante: 'NOVO UNO',
-			},
-			{
-				idVaga: 4,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A4',
-				vazia: true,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 5,
-				idEstacionamento: 1,
-				idOcupante: '',
-				numeroVaga: 'A5',
-				vazia: false,
-				nomeOcupante: '',
-				placaOcupante: '',
-				modeloOcupante: '',
-			},
-			{
-				idVaga: 6,
-				idEstacionamento: 1,
-				idOcupante: 3,
-				numeroVaga: 'A6',
-				vazia: false,
-				nomeOcupante: 'Boni',
-				placaOcupante: 'JKL-1582',
-				modeloOcupante: 'Carro do debiloide',
-			},
-		];
-
-		setVagas(Vagas);
-
-		setPausa(true);
-	}
-
-	function numeroVagasOcupadas() {
-		let vagaocupadas = 0;
-		let nomevagasocupadas = [];
-		for (let i = 0; i < vagas.length; i++) {
-			if (vagas[i].vazia === false) {
-				vagaocupadas += 1;
-			} else {
-				nomevagasocupadas.push(vagas[i].nomeOcupante);
-			}
+		if(num === 0){
+			setTimeout( () => {
+				pegaVagas()
+				pegaVagasLivres()
+			},100)
+			setNum(1)
+		}else{
+			setTimeout( () => {
+				pegaVagas()
+				pegaVagasLivres()
+			},5000)
 		}
-		setVagasOcupadas(vagaocupadas);
+	},[num, vagas]);
+	
+	async function pegaVagas(){
+		const {data} = await api.get(`/api/vagas/listvaga?id=4`)
+		setVagas(data)
 	}
 
-	if (pausa) {
-		numeroVagasOcupadas();
-		setPausa(false);
+	async function pegaVagasLivres(){
+		const {data} = await api.get(`/api/vagas/vagaslivres?id=4`)
+		setVagasLivres(data)
 	}
 
 	return (
@@ -346,19 +41,19 @@ export default function VagasEstacionamento() {
 			<Container fixed>
 				<Box mt={2}>
 					<p>
-						{' '}
-						{vagasOcupadas} / {vagas.length} Vagas Ocupadas{' '}
+					Vagas Livres : {vagasLivres}/{vagas.length}
 					</p>
 				</Box>
 
 				<Grid container spacing={3}>
 					{vagas &&
-						vagas.map((dados) => (
+						vagas.map((dados) => (						
 							<Vaga
-								key={dados.idVaga}
-								vazia={dados.vazia}
+								key={dados.id}
+								idVaga={dados.id}
+								status={dados.situacao}
 								numeroVaga={dados.numeroVaga}
-								placaOcupante={dados.placaOcupante}
+								placaOcupante={dados.veiculo != null ? dados.veiculo.placa : '' }
 							/>
 						))}
 				</Grid>

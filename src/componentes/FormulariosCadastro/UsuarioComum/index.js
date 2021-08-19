@@ -38,7 +38,7 @@ export default function CadastroUsuario() {
 			cnh: event.target.cnh.value,
 			email: event.target.Email.value,
 			senha: event.target.Senha.value,
-			mode: 'cliente',
+			mode: 'estacionamento',
 			veiculo: [],
 			estacionamentos: [],
 		};
