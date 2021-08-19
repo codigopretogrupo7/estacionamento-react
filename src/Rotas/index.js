@@ -22,7 +22,6 @@ import Navbar from '../componentes/Navbar/Navbar';
 
 import { Context } from '../Context/AuthContext'
 
-
 const Rotas = () => (
     
     <>
@@ -34,12 +33,12 @@ const Rotas = () => (
                     <Route exact path='/Estacionamentos-Parceiros' component={ PagesParkingSearch } />
                     <Route exact path='/contato' component={ Contato } />
                     <Route exact path='/Login' component={ Login } />
-                    {/* <CustomRoute exact path='/Search' component={ PagesParkingSearch } /> */}
+                    {/* <Route exact path='/Search' component={ PagesParkingSearch } /> */}
                     <Route exact path='/Cadastro' component={Cadastro}/>
                     <Route exact path='/CadastroEstacionamento' component={ CadastroEstacionamento } />
                     <Route exact path='/Vagas' component={ VagasEstacionamento } />
                     <Route exact path='/Estacionamento:id' component={ EstacionamentoEspecifico } />
-                    <Route exact path='/Checkin' component={ Checkin } />
+                    <Route exact path='/Checkin:id' component={ Checkin } />
                     <Route exact path='/CadastroVeiculo' component={ CadastroVeiculo } />
                     {/* <Route exact path='/Checkout' component={ Checkout } /> */}
 
