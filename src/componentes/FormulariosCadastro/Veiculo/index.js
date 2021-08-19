@@ -1,4 +1,11 @@
-import React,{ useState } from 'react'
+
+import React,{ useState, useContext } from 'react'
+import { Context } from '../../../Context/AuthContext'
+import api from '../../../api'
+import AddCircleIcon from '@material-ui/icons/AddCircle';
+import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
+
+
 import { 
   Container, 
   Button, 
@@ -6,20 +13,74 @@ import {
   FormControl, 
   InputLabel, 
   Input, 
-  InputAdornment, 
-  TextareaAutosize,
-  TextField,
-  IconButton,
   Box
+
 } from '@material-ui/core/'
 
-import Visibility from '@material-ui/icons/Visibility';
-import VisibilityOff from '@material-ui/icons/VisibilityOff';
+
 import './estilo.css';
-import api from '../../../api'
+
 
 
 export default function CadastroVeiculo(){
+
+const { id } = useContext(Context)
+
+const [ veiculos, setVeiculos ] = useState([1])
+const [ numeroCarros, setNumeroCarros ] = useState(2)
+const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
+	
+	console.log(id)
+	async function enviarFormulario(event){
+		event.preventDefault()
+	
+		const dados = {
+				
+				modelo:event.target.modelo.value,
+				placa:event.target.placa.value,
+				cor:event.target.cor.value,
+				"usuario": {
+					"id": id
+				}
+		}
+			
+		await api.post("/api/veiculos/add",dados)
+	
+	  }
+
+
+
+	  <Box mt={6} ml={1} >
+              <span 
+                style={{marginRight:'5px',cursor:'pointer'}}
+                onClick={ ()=>{
+                  setVeiculos([...veiculos, numeroCarros])
+                  adicionaVeiculo()}
+                }>
+                <AddCircleIcon color='primary'/>
+              </span>
+              <span 
+                style={{ marginLeft:'5px',cursor:'pointer'}} 
+                onClick={ ()=>{
+                  retiraVeiculo(numeroCarros-1)}
+                }>
+                <RemoveCircleIcon color='secondary'/>
+              </span>
+            </Box>
+
+function adicionaVeiculo(){
+    setVeiculosCadastrados([...veiculosCadastrados,{'modelo':Modelo,'placa':Placa,'cor':Cor}])
+    setNumeroCarros(numeroCarros + 1)
+
+  }
+
+  function retiraVeiculo(id){
+    const NovaLista = veiculos.filter(item=>item !== id)
+    setVeiculos(NovaLista)
+    setNumeroCarros(numeroCarros-1)
+  }
+
+
 
   return(
     <div className='tamanho'>
@@ -27,7 +88,7 @@ export default function CadastroVeiculo(){
 				<Box mt={7} ml={2} mb={3}>
 					<p>	Preencha as informações do seu veiculo</p>
 				</Box>
-				<form>
+				<form onSubmit={enviarFormulario} >
 					<Grid container spacing={6}>
 						
 							<Grid item xs={12} md={3}>
