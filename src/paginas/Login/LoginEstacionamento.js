@@ -1,63 +1,58 @@
 import React, { useContext, useState } from 'react';
-import { Link } from 'react-router-dom';
-import { Redirect } from 'react-router-dom';
 
-import { Context } from '../../Context/AuthContext';
+import { Contexts } from '../../Context/AuthEstacionamentoContext';
 import Rodape from '../../componentes/Rodape';
 
 import './estilo.css';
+import { Redirect } from 'react-router-dom';
 
-export default function LoginEstacionamento(){
-  const [email, setEmail] = useState('');
+export default function LoginEstacionamento() {
+	const [email, setEmail] = useState('');
 	const [password, setPassword] = useState('');
+	const { redirect, LoginDeEstacionamento } = useContext(Contexts);
 
-	const { authenticated, handleLogin } = useContext(Context);
+	if (redirect) {
+		return <Redirect to='/Vagas' />;
+	} else {
+		return (
+			<>
+				<div>
+					<div className='loginEstacionamento'>
+						<div className='Login-right'>
+							<h1> Acessar </h1>
 
-	if (authenticated) {
-		return <Redirect to='/' />;
-	} 
+							<div className='Login-loginInputEmail'>
+								<input
+									type='email'
+									placeholder='Digite seu email'
+									value={email}
+									onChange={(e) => setEmail(e.target.value)}
+								/>
+							</div>
 
-	return (
-		<>
-			<div>
-				<div className='loginEstacionamento'>
-					<div className='Login-right'>
-						<h1> Acessar </h1>
+							<div className='Login-loginInputPassword'>
+								<input
+									placeholder='Digite sua senha'
+									type='password'
+									value={password}
+									onChange={(e) => setPassword(e.target.value)}
+								/>
+							</div>
 
-						<div className='Login-loginInputEmail'>
-							<input
-								type='email'
-								placeholder='Digite um email'
-								value={email}
-								onChange={(e) => setEmail(e.target.value)}
-							/>
-						</div>
-
-						<div className='Login-loginInputPassword'>
-							<input
-								placeholder='Digite sua senha'
-								type='password'
-								value={password}
-								onChange={(e) => setPassword(e.target.value)}
-							/>
-						</div>
-
-						<button
-							type='submit'
-							id='entrar'
-							onClick={() => {
-								handleLogin(email, password);
-							}}
-						>
-							Entrar
-						</button>
-						<div className='footerLogin'>
-							Não tem uma conta? <Link to='/Cadastro'>Registre-se</Link>
+							<button
+								type='submit'
+								id='entrar'
+								onClick={() => {
+									LoginDeEstacionamento(email, password);
+								}}
+							>
+								Entrar
+							</button>
 						</div>
 					</div>
 				</div>
-			</div>
-			<Rodape />
-		</>
-	);
+				<Rodape />
+			</>
+		);
+	}
 }

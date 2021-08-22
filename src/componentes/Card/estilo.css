@@ -16,8 +16,9 @@
   
   .card .img-estacionamentocard{
     height:13.12rem;
-    max-width: 18.75rem;
-    border-radius:8px 8px 0 0 ;
+    max-width: 18.60rem;
+    min-width: 18.60rem;
+    border-radius:8px 8px 8px 8px ;
     
   }
 

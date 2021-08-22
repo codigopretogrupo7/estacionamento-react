@@ -9,26 +9,19 @@ import api from '../../api';
 export default function VagasEstacionamento() {
 	const [vagas, setVagas] = useState([]);
 	const [vagasLivres, setVagasLivres] = useState(0);
-	const [num, setNum] = useState(0)
+	const id = localStorage.getItem('id')
+	
 
 	useEffect(() => {
-		if(num === 0){
-			setTimeout( () => {
-				pegaVagas()
-				pegaVagasLivres()
-			},1500)
-			setNum(1)
-		}else{
 			setTimeout( () => {
 				pegaVagas()
 				pegaVagasLivres()
 			},5000)
-		}
-	},[num, vagas]);
+	});
 	
 	async function pegaVagas(){
 		try{
-			const {data} = await api.get(`/api/vagas/listvaga?id=2`)
+			const {data} = await api.get(`/api/vagas/listvaga?id=${id}`)
 			setVagas(data)
 		}catch(e){
 			console.log(e)
@@ -37,7 +30,7 @@ export default function VagasEstacionamento() {
 
 	async function pegaVagasLivres(){
 		try{
-			const {data} = await api.get(`/api/vagas/vagaslivres?id=2`)
+			const {data} = await api.get(`/api/vagas/vagaslivres?id=${id}`)
 			setVagasLivres(data)
 		}catch(e){
 			console.log(e)

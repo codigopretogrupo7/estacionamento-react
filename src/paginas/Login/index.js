@@ -27,7 +27,7 @@ const Login = () => {
 						<div className='Login-loginInputEmail'>
 							<input
 								type='email'
-								placeholder='Digite um email'
+								placeholder='Digite seu nome de usuario'
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 							/>

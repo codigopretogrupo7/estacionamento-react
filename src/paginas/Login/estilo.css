@@ -11,8 +11,8 @@
     flex-direction: column;
     height: 89.5vh;
     width:100%;
-    background-color: black;
-    background-image: url('./parking.jpg');
+    background: linear-gradient(90deg,rgb(11, 188, 241) 0%, rgba(0,119,182,1)100%);
+
 
     min-width: 300px;
   
@@ -25,6 +25,8 @@
     height: 89.5vh;
     width:100%;
     background-color: black;
+    background-image: url('./parking.jpg');
+
     min-width: 300px;
 }
 
