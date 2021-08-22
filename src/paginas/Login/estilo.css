@@ -17,6 +17,16 @@
     min-width: 300px;
   
 }
+.loginEstacionamento{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 89.5vh;
+    width:100%;
+    background-color: black;
+    min-width: 300px;
+}
 
 .Login-right{
     background-color: rgba(255, 255, 255, 0.911);
