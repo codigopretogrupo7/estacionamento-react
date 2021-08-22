@@ -20,7 +20,7 @@ export default function LoginEstacionamento(){
 	return (
 		<>
 			<div>
-				<div className='Login'>
+				<div className='loginEstacionamento'>
 					<div className='Login-right'>
 						<h1> Acessar </h1>
 

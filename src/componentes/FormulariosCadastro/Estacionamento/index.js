@@ -1,90 +1,85 @@
-import React,{ useState, useContext } from 'react'
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
-import { Context } from '../../../Context/AuthContext'
-import { 
-  Container, 
-  Button, 
-  Grid, 
-  FormControl, 
-  InputLabel, 
-  Input, 
-  InputAdornment, 
-  TextareaAutosize,
-  TextField,
-  IconButton,
-  Box
-} from '@material-ui/core/'
+import { Context } from '../../../Context/AuthContext';
+import {
+	Container,
+	Button,
+	Grid,
+	FormControl,
+	InputLabel,
+	Input,
+	InputAdornment,
+	TextareaAutosize,
+	TextField,
+	IconButton,
+	Box,
+} from '@material-ui/core/';
 
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
 import './estilo.css';
-import api from '../../../api'
+import api from '../../../api';
 
+export default function CadastroEstacionamento() {
+	const [estado, setEstado] = useState('');
+	const [cidade, setCidade] = useState('');
+	const [bairro, setBairro] = useState('');
+	const [endereco, setEndereco] = useState('');
+	const [senha, setSenha] = useState('');
+	const [enviar, setEnviar] = useState(false);
+	const [Ativado, setAtivado] = useState(false);
+	const { id } = useContext(Context);
+	const { authenticated } = useContext(Context);
 
+	const [values, setValues] = React.useState({
+		password: '',
+		ConfirmaSenha: '',
+		showPassword: false,
+	});
 
-export default function CadastroEstacionamento(){
-
-  const [ estado, setEstado ]     = useState('')
-  const [ cidade,setCidade ]      = useState('')
-  const [ bairro, setBairro ]     = useState('')
-  const [ endereco, setEndereco ] = useState('')
-  const [ senha, setSenha ]       = useState('')
-  const [ enviar, setEnviar ]     = useState(false)
-  const [ Ativado, setAtivado ]    = useState(false)
-	const { id } = useContext(Context)
-	const { authenticated } = useContext(Context)
-
-  const [values, setValues] = React.useState({
-    password: '',
-    ConfirmaSenha:'',
-    showPassword: false,
-  });
-
-
-  async function buscaCep(cep){
-    await fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    .then(resposta => resposta.json())
-    .then(json => {
-      setEstado(json.uf)
-      setCidade(json.localidade)
-      setBairro(json.bairro)
-      setEndereco(json.logradouro)
-      setAtivado(true)
-    })
-  }
-
-  function verificaCep(event){
-    const cep = event.target.value
-    if(cep.length === 8 ){
-      buscaCep(cep)
-    }else{
-      setEstado('')
-      setCidade('')
-      setBairro('')
-      setEndereco('')
-      setAtivado(false)
-    }
-  }
-  
-  const onchangeFoto = (event) => {
-	const file = event.target.files
-	let reader = new FileReader()
-	reader.readAsDataURL(file[0])
-	reader.onload = (event) => {
-		let item = event.target.result
-		console.log('foto', event.target.result)
-		localStorage.setItem('foto', item)
+	async function buscaCep(cep) {
+		await fetch(`https://viacep.com.br/ws/${cep}/json/`)
+			.then((resposta) => resposta.json())
+			.then((json) => {
+				setEstado(json.uf);
+				setCidade(json.localidade);
+				setBairro(json.bairro);
+				setEndereco(json.logradouro);
+				setAtivado(true);
+			});
 	}
-}
 
-  async function enviarFormulario(event){
-    event.preventDefault()
+	function verificaCep(event) {
+		const cep = event.target.value;
+		if (cep.length === 8) {
+			buscaCep(cep);
+		} else {
+			setEstado('');
+			setCidade('');
+			setBairro('');
+			setEndereco('');
+			setAtivado(false);
+		}
+	}
 
-    
-    const dados = {
+	const onchangeFoto = (event) => {
+		const file = event.target.files;
+		let reader = new FileReader();
+		reader.readAsDataURL(file[0]);
+		reader.onload = (event) => {
+			let item = event.target.result;
+			console.log('foto', event.target.result);
+			localStorage.setItem('foto', item);
+		};
+	};
+
+	async function enviarFormulario(event) {
+		event.preventDefault();
+
+		const dados = {
 			nomeEstacionamento: event.target.nomeDoEstacionamento.value,
 			telefone: event.target.telefone.value,
-			foto: localStorage.getItem("foto"),
+			foto: localStorage.getItem('foto'),
 			cep: event.target.cep.value,
 			estado: estado,
 			cidade: cidade,
@@ -101,48 +96,46 @@ export default function CadastroEstacionamento(){
 			emailEstacionamento: event.target.Email.value,
 			senhaEstacionamento: event.target.Senha.value,
 			mode: 'Estacionamento',
-			"lat": "-16.586043139144625",
-			"lng": "-49.33854118694673",
-			"usuario": {
-				"id": id
-			}
-    }
-		try{
-			await api.post("/api/estacionamentos/add",dados)
-			alert('Formulario Enviado, aguarde nosso email de confirmação!')
-		}catch(e){
-			console.log(e)
+			lat: '-16.586043139144625',
+			lng: '-49.33854118694673',
+			usuario: {
+				id: id,
+			},
+		};
+		try {
+			await api.post('/api/estacionamentos/add', dados);
+			alert('Formulario Enviado, aguarde nosso email de confirmação!');
+		} catch (e) {
+			console.log(e);
 		}
-  }
+	}
 
-  function comparaSenha(event){
-    if(event.target.id === 'Senha'){
-      setSenha(event.target.value)
-    }else{
-      if(event.target.value === senha){
-        setEnviar(true)
-      }else{
-        setEnviar(false)
-      }
-    }
-    
-  }
+	function comparaSenha(event) {
+		if (event.target.id === 'Senha') {
+			setSenha(event.target.value);
+		} else {
+			if (event.target.value === senha) {
+				setEnviar(true);
+			} else {
+				setEnviar(false);
+			}
+		}
+	}
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
+	const handleChange = (prop) => (event) => {
+		setValues({ ...values, [prop]: event.target.value });
+	};
 
-  const handleClickShowPassword = () => {
-    setValues({ ...values, showPassword: !values.showPassword });
-  };
+	const handleClickShowPassword = () => {
+		setValues({ ...values, showPassword: !values.showPassword });
+	};
 
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+	const handleMouseDownPassword = (event) => {
+		event.preventDefault();
+	};
 
-
-	if(authenticated){
-		return(
+	if (authenticated) {
+		return (
 			<div className='tamanho'>
 				<Container fixed style={{ textAlign: 'left' }}>
 					<Box mt={7} ml={2} mb={3}>
@@ -161,7 +154,7 @@ export default function CadastroEstacionamento(){
 										<InputLabel htmlFor='nomeDoEstacionamento'>
 											Nome do estacionamento
 										</InputLabel>
-	
+
 										<Input
 											id='nomeDoEstacionamento'
 											name='nomeDoEstacionamento'
@@ -173,17 +166,27 @@ export default function CadastroEstacionamento(){
 									<br />
 									<FormControl fullWidth>
 										<InputLabel htmlFor='telefone'>Telefone</InputLabel>
-	
+
 										<Input id='telefone' name='telefone' type='tel' />
 									</FormControl>
 								</Grid>
 								<Grid item xs={12} md={4}>
 									<FormControl fullWidth>
-									<Input required type='file' accept="image/png,image/jpeg" placeholder='Insirasuafoto' name='foto' id='foto' type="file" onChange={(event)=>onchangeFoto(event)}> </Input>
+										<Input
+											required
+											type='file'
+											accept='image/png,image/jpeg'
+											placeholder='Insirasuafoto'
+											name='foto'
+											id='foto'
+											onChange={(event) => onchangeFoto(event)}
+										>
+											{' '}
+										</Input>
 									</FormControl>
 								</Grid>
 							</>
-	
+
 							{/* Endereço do estacionamento */}
 							<>
 								<Grid item xs={12} md={4}>
@@ -248,7 +251,11 @@ export default function CadastroEstacionamento(){
 											name='endereco'
 											type='text'
 											startAdornment={
-												Ativado ? <InputAdornment>{endereco}</InputAdornment> : ''
+												Ativado ? (
+													<InputAdornment>{endereco}</InputAdornment>
+												) : (
+													''
+												)
 											}
 											defaultValue={endereco}
 										/>
@@ -261,7 +268,7 @@ export default function CadastroEstacionamento(){
 									</FormControl>
 								</Grid>
 							</>
-	
+
 							{/* Horarios de funcionamento, numero de vagas*/}
 							<>
 								<Grid item xs={12} md={6}>
@@ -290,7 +297,7 @@ export default function CadastroEstacionamento(){
 															/>
 														</FormControl>
 													</Grid>
-	
+
 													<Grid item>
 														<FormControl>
 															<TextField
@@ -307,9 +314,9 @@ export default function CadastroEstacionamento(){
 										</Grid>
 									</Box>
 								</Grid>
-							
+
 								<Grid item xs={12} md={6}>
-								<br/>
+									<br />
 									<FormControl>
 										<InputLabel htmlFor='numeroDeVagas'>
 											Número de vagas
@@ -322,42 +329,42 @@ export default function CadastroEstacionamento(){
 									</FormControl>
 								</Grid>
 							</>
-	
+
 							{/* Valores */}
 							<>
-									<Grid item xs={12} md={4}>
-										<FormControl fullWidth>
-											<InputLabel htmlFor='ValorDaHora'>
-												Valor de 1 hora
-											</InputLabel>
-											<Input id='ValorDaHora' name='ValorDaHora' type='number' />
-										</FormControl>
-									</Grid>
-									<Grid item xs={12} md={4}>
-										<FormControl fullWidth>
-											<InputLabel htmlFor='DemaisHoras'>
-												Acréscimo por hora
-											</InputLabel>
-											<Input id='DemaisHoras' name='DemaisHoras' type='number' />
-										</FormControl>
-									</Grid>
-									<Grid item xs={12} md={4}>
-										<FormControl fullWidth>
-											<InputLabel htmlFor='Diaria'>Valor da Diária</InputLabel>
-											<Input id='Diaria' name='Diaria' type='number' />
-										</FormControl>
-									</Grid>
+								<Grid item xs={12} md={4}>
+									<FormControl fullWidth>
+										<InputLabel htmlFor='ValorDaHora'>
+											Valor de 1 hora
+										</InputLabel>
+										<Input id='ValorDaHora' name='ValorDaHora' type='number' />
+									</FormControl>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<FormControl fullWidth>
+										<InputLabel htmlFor='DemaisHoras'>
+											Acréscimo por hora
+										</InputLabel>
+										<Input id='DemaisHoras' name='DemaisHoras' type='number' />
+									</FormControl>
+								</Grid>
+								<Grid item xs={12} md={4}>
+									<FormControl fullWidth>
+										<InputLabel htmlFor='Diaria'>Valor da Diária</InputLabel>
+										<Input id='Diaria' name='Diaria' type='number' />
+									</FormControl>
+								</Grid>
 							</>
-	
+
 							{/* Descrição */}
-	
+
 							<>
 								<Grid item xs={12} md={12}>
 									<Box mt={1} ml={2} mb={-2}>
 										<p>Conte-nos um pouco sobre o seu estacionamento</p>
 									</Box>
 								</Grid>
-	
+
 								<Grid item xs={12} md={12}>
 									<FormControl fullWidth>
 										<TextareaAutosize
@@ -370,18 +377,18 @@ export default function CadastroEstacionamento(){
 									</FormControl>
 								</Grid>
 							</>
-	
+
 							{/* Email senha*/}
 							<>
 								<Grid item xs={12} md={12}>
 									<Box mt={1} ml={2} mb={-2}>
 										<p>
-											Cadastre um email para que possamos entrar em contato e uma
-											senha para logar na nossa plataforma
+											Cadastre um email para que possamos entrar em contato e
+											uma senha para logar na nossa plataforma
 										</p>
 									</Box>
 								</Grid>
-	
+
 								<Grid item xs={12} md={4}>
 									<FormControl fullWidth>
 										<InputLabel htmlFor='Email'>Email</InputLabel>
@@ -446,7 +453,7 @@ export default function CadastroEstacionamento(){
 									</FormControl>
 								</Grid>
 							</>
-	
+
 							{/* Botao*/}
 							<>
 								<Grid item xs={12} md={12}>
@@ -465,13 +472,18 @@ export default function CadastroEstacionamento(){
 					</form>
 				</Container>
 			</div>
-		)
-	}else{
-		return(
+		);
+	} else {
+		return (
 			<div>
-				<h1 style={{marginTop:"150px"}}>Faça Login para cadastrar um estacionamento</h1>
-				<Link to='/login' className='btn-contato' style={{marginTop:"30px"}}> Login </Link>
+				<h1 style={{ marginTop: '150px' }}>
+					Faça Login para cadastrar um estacionamento
+				</h1>
+				<Link to='/login' className='btn-contato' style={{ marginTop: '30px' }}>
+					{' '}
+					Login{' '}
+				</Link>
 			</div>
-		)
+		);
 	}
 }

@@ -14,6 +14,7 @@ import Checkin from '../paginas/Checkin';
 import Checkout from '../paginas/Checkout'
 import Navbar from '../componentes/Navbar/Navbar';
 import VeiculosCadastrados from '../paginas/VeiculosCadastrados';
+import LoginEstacionamento from '../paginas/Login/LoginEstacionamento';
 
 const Rotas = () => (
 	<>
@@ -44,6 +45,7 @@ const Rotas = () => (
 				<Route exact path='/CadastroVeiculo' component={CadastroVeiculo} />
 				<Route exact path='/Checkout:id' component={ Checkout } />
 				<Route exact path='/veiculoscadastrados' component={VeiculosCadastrados} />
+				<Route exact path='/loginestacionamento' component={LoginEstacionamento} />
 			</Switch>
 		</BrowserRouter>
 	</>
