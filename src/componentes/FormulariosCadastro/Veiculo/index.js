@@ -2,8 +2,6 @@
 import React,{ useState, useContext } from 'react'
 import { Context } from '../../../Context/AuthContext'
 import api from '../../../api'
-import AddCircleIcon from '@material-ui/icons/AddCircle';
-import RemoveCircleIcon from '@material-ui/icons/RemoveCircle';
 
 
 import { 
@@ -36,9 +34,9 @@ const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
 	
 		const dados = {
 				
-				modelo:event.target.modelo.value,
-				placa:event.target.placa.value,
-				cor:event.target.cor.value,
+				Modelo:event.target.modelo.value,
+				Placa:event.target.placa.value,
+				Cor:event.target.cor.value,
 				"usuario": {
 					"id": id
 				}
@@ -47,39 +45,6 @@ const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
 		await api.post("/api/veiculos/add",dados)
 	
 	  }
-
-
-
-	  <Box mt={6} ml={1} >
-              <span 
-                style={{marginRight:'5px',cursor:'pointer'}}
-                onClick={ ()=>{
-                  setVeiculos([...veiculos, numeroCarros])
-                  adicionaVeiculo()}
-                }>
-                <AddCircleIcon color='primary'/>
-              </span>
-              <span 
-                style={{ marginLeft:'5px',cursor:'pointer'}} 
-                onClick={ ()=>{
-                  retiraVeiculo(numeroCarros-1)}
-                }>
-                <RemoveCircleIcon color='secondary'/>
-              </span>
-            </Box>
-
-function adicionaVeiculo(){
-    setVeiculosCadastrados([...veiculosCadastrados,{'modelo':Modelo,'placa':Placa,'cor':Cor}])
-    setNumeroCarros(numeroCarros + 1)
-
-  }
-
-  function retiraVeiculo(id){
-    const NovaLista = veiculos.filter(item=>item !== id)
-    setVeiculos(NovaLista)
-    setNumeroCarros(numeroCarros-1)
-  }
-
 
 
   return(

@@ -8,7 +8,7 @@ import { Link } from 'react-router-dom'
     <div className='card' >
       <Link style={{textDecoration:"none", color:"black"}} to={{pathname:`/Estacionamento${parking.id}`}} >
 
-        <img className="img-estacionamentocard"  src={parking.imageUrl} alt={parking.nomeEstacionamento} />
+        <img className="img-estacionamentocard"  src={parking.foto} alt={parking.nomeEstacionamento} />
           <div className='container'>
             <div className='titulo'>
               <h4>{parking.nomeEstacionamento}</h4>
