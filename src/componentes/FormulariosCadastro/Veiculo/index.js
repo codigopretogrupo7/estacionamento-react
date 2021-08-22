@@ -1,68 +1,71 @@
+import React, { useContext, useState } from 'react';
+import { Context } from '../../../Context/AuthContext';
+import { Redirect } from 'react-router';
+import api from '../../../api';
 
-import React,{ useState, useContext } from 'react'
-import { Context } from '../../../Context/AuthContext'
-import api from '../../../api'
 
-
-import { 
-  Container, 
-  Button, 
-  Grid, 
-  FormControl, 
-  InputLabel, 
-  Input, 
-  Box
-
-} from '@material-ui/core/'
-
+import {
+	Container,
+	Button,
+	Grid,
+	FormControl,
+	InputLabel,
+	Input,
+	Box,
+} from '@material-ui/core/';
 
 import './estilo.css';
 
+export default function CadastroVeiculo() {
+	const { id } = useContext(Context);
+	const [redirect, setRedirect] = useState(false);
 
+	async function enviarFormulario(event) {
+		event.preventDefault();
 
-export default function CadastroVeiculo(){
-
-const { id } = useContext(Context)
-
-const [ veiculos, setVeiculos ] = useState([1])
-const [ numeroCarros, setNumeroCarros ] = useState(2)
-const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
-	
-	console.log(id)
-	async function enviarFormulario(event){
-		event.preventDefault()
-	
 		const dados = {
-				
-				Modelo:event.target.modelo.value,
-				Placa:event.target.placa.value,
-				Cor:event.target.cor.value,
-				"usuario": {
-					"id": id
-				}
-		}
-			
-		await api.post("/api/veiculos/add",dados)
+			modelo: event.target.modelo.value,
+			placa: event.target.placa.value,
+			cor: event.target.cor.value,
+			usuario: {
+				id: id,
+			},
+		};
+
+		try{
+			await api.post('/api/veiculos/add', dados);
 	
-	  }
+			alert('veiculo cadastrado')
+			setRedirect(true)
+		}catch(e){
+			console.log(e)
+		}
+	}
 
-
-  return(
-    <div className='tamanho'>
-			<Container fixed style={{ textAlign: 'left' }}>
-				<Box mt={7} ml={2} mb={3}>
-					<p>	Preencha as informações do seu veiculo</p>
-				</Box>
-				<form onSubmit={enviarFormulario} >
-					<Grid container spacing={6}>
-						
-							<Grid item xs={12} md={3}>
+	if (redirect) {
+		return <Redirect to='/' />;
+	} else {
+		return (
+			<div className='tamanho'>
+				<Container fixed style={{ textAlign: 'left' }}>
+					<Box mt={7} ml={2} mb={3}>
+						<p> Preencha as informações do seu veiculo</p>
+					</Box>
+					<form onSubmit={enviarFormulario}>
+						<Grid container spacing={6}>
+							<Grid item xs={12} md={4}>
 								<FormControl fullWidth>
 									<InputLabel htmlFor='modelo'>Modelo</InputLabel>
 									<Input id='modelo' name='modelo' type='text' />
 								</FormControl>
 							</Grid>
 
+							<Grid item xs={12} md={4}>
+								<FormControl fullWidth>
+									<InputLabel htmlFor='cor'>Cor</InputLabel>
+									<Input id='cor' name='cor' type='text' />
+								</FormControl>
+							</Grid>
 
 							<Grid item xs={12} md={4}>
 								<FormControl fullWidth>
@@ -71,15 +74,7 @@ const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
 								</FormControl>
 							</Grid>
 
-
-							<Grid item xs={12} md={2}>
-								<FormControl fullWidth>
-									<InputLabel htmlFor='cor'>Cor</InputLabel>
-									<Input id='cor' name='cor' type='text' />
-								</FormControl>
-							</Grid>
-
-							<Grid 
+							<Grid
 								item
 								xs={12}
 								md={12}
@@ -90,15 +85,14 @@ const [ veiculosCadastrados, setVeiculosCadastrados ] = useState([])
 									marginBottom: '15px',
 								}}
 							>
-
-									<Button type='submit' variant='contained'>
-										Cadastrar
-									</Button>
-								
+								<Button type='submit' variant='contained' color='primary'>
+									Cadastrar
+								</Button>
 							</Grid>
-					</Grid>
-				</form>
-			</Container>
-		</div>
-  )
+						</Grid>
+					</form>
+				</Container>
+			</div>
+		);
+	}
 }

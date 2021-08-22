@@ -4,7 +4,7 @@ import { Container, Grid, Box } from '@material-ui/core';
 import LeftComponent from './LeftComponent';
 import RightComponent from './RightComponent';
 
-export default function oi (props){
+export default function estacionamentoIdComponent(props){
   return(
     <>
     <Container key={props.e.id} style={{ marginBottom: '30px', marginTop: '20px'}} >
@@ -31,6 +31,7 @@ export default function oi (props){
                 valorHora={props.e.vlHora}
                 valorAdicional={props.e.vlAdicional}
                 valorDiaria={props.e.vlDiaria}
+								telefone={props.e.telefone}
 							/>
 						</Box>
 					</Grid>

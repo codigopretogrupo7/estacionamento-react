@@ -19,19 +19,19 @@ const Contato = () => {
 
             <ul className="lista-estacionamentos">
               <li>
-                <img className="img-estacionamentos" src="assets/Estacionamentos/estacionamento1.jpg" alt="Estacionamento Centro" title="Estacionamento Centro"/>
+                <img className="img-estacionamentos" src="assets/estacionamentos/estacionamento1.jpg" alt="Estacionamento Centro" title="Estacionamento Centro"/>
                 <p>Estacionamento Centro</p>
                 <p>Domingo a Sábado das 06:00 às 18:00</p>
               </li>
 
               <li>
-                <img className="img-estacionamentos" src="assets/Estacionamentos/estacionamento2.jpg" alt="Estacionamento Porto" title="Estacionamento Porto"/>
+                <img className="img-estacionamentos" src="assets/estacionamentos/estacionamento2.jpg" alt="Estacionamento Porto" title="Estacionamento Porto"/>
                 <p>Estacionamento Porto</p>
                 <p>Domingo a Sábado das 06:00 às 18:00</p>
               </li>
 
               <li>
-                <img className="img-estacionamentos" src="assets/Estacionamentos/estacionamento3.jpg" alt="Estacionamento Aeroporto" title="Estacionamento Aeroporto"/>
+                <img className="img-estacionamentos" src="assets/estacionamentos/estacionamento3.jpg" alt="Estacionamento Aeroporto" title="Estacionamento Aeroporto"/>
                 <p>Estacionamento Aeroporto</p>
                 <p>Domingo a Sábado das 06:00 às 22:00</p>
               </li>

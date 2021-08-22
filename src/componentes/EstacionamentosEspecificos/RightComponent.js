@@ -1,10 +1,10 @@
 import React, {useContext, useEffect, useState} from 'react';
 import { Context } from '../../Context/AuthContext'
+import ModalReservaVaga from './modal/ModalReservaVaga'
 
 import {
 	Box,
 	Card,
-	Button,
 	Table,
 	TableBody,
 	TableCell,
@@ -18,8 +18,6 @@ import CheckBoxIcon from '@material-ui/icons/CheckBox';
 
 import api from '../../api';
 
-
-
 export default function RightComponent(props) {
 	const [totalVagasLivres , setTotalVagasLivres] = useState('')
 	const ids = props.id
@@ -31,18 +29,21 @@ export default function RightComponent(props) {
 	})
 
 	async function vagasLivres(){
-		const { data } = await api.get(`/api/vagas/vagaslivres?id=${ids}`)
-		setTotalVagasLivres(data)
+		try{
+			const { data } = await api.get(`/api/vagas/vagaslivres?id=${ids}`)
+			setTotalVagasLivres(data)
+		}catch(e){
+			console.log(e)
+		}
 	}
 
-	async function reservaVaga(){
-		const veiculo = {"id":1}
-		const {data} = await api.post(`/api/vagas/reservavaga?id=${props.id}`,veiculo)	
-		vagasLivres()	
-		alert(`A vaga ${data.numeroVaga} esta reservada em seu nome pelo periodo de 2 horas`);
-	}
 
-  const { authenticated, mode } = useContext(Context)
+  const { authenticated } = useContext(Context)
+
+	const valorhora = props.valorHora + 0
+	const duashoras = props.valorHora + props.valorAdicional
+	const treshoras = props.valorHora + props.valorAdicional + props.valorAdicional
+	const diaria = props.valorDiaria + 0
 
 	return (
 		<Card >
@@ -50,6 +51,8 @@ export default function RightComponent(props) {
 
         <p>Nome: {props.nomeDoEstacionamento}</p>
         <p>Numero de vagas livres: {totalVagasLivres} / {props.numeroDeVagas}</p>
+
+				<p>Telefone: {props.telefone}</p>
 
 				<p>
 					Serviços do local:<br/> <CheckBoxIcon style={{ color: 'green' }} />{' '}
@@ -71,10 +74,10 @@ export default function RightComponent(props) {
 						</TableHead>
 						<TableBody>
 							<TableRow>
-								<TableCell>{props.valorHora}</TableCell>
-								<TableCell>{props.valorHora + props.valorAdicional}</TableCell>
-								<TableCell>{props.valorHora + props.valorAdicional + props.valorAdicional}</TableCell>
-								<TableCell>{props.valorDiaria}</TableCell>
+								<TableCell>{valorhora.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</TableCell>
+								<TableCell>{duashoras.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</TableCell>
+								<TableCell>{treshoras.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</TableCell>
+								<TableCell>{diaria.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</TableCell>
 							</TableRow>
 						</TableBody>
 					</Table>
@@ -83,14 +86,8 @@ export default function RightComponent(props) {
 
 				<Box mb={5}>
           {
-            authenticated && mode === "cliente" ?
-            <Button
-						variant='contained'
-						color='primary'
-						onClick={reservaVaga}
-					>
-						Reservar Vaga
-					</Button>
+            authenticated ?
+						<ModalReservaVaga vaga={props.id}/>
             :
           " "
           }

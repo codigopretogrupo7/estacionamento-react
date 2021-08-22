@@ -4,7 +4,9 @@ import { Link } from 'react-router-dom'
 
 
   const ParkingCard = ({parking}) => {
-  return (
+  
+  const diaria = parking.vlDiaria
+    return (
     <div className='card' >
       <Link style={{textDecoration:"none", color:"black"}} to={{pathname:`/Estacionamento${parking.id}`}} >
 
@@ -18,7 +20,7 @@ import { Link } from 'react-router-dom'
               <span>{parking.bairro} - {parking.cidade}</span>
             </div>
             <div className='valor'>
-              <span>Diaria R${parking.vlDiaria}</span>
+              <span>Diaria {diaria.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
             </div>
             <div className='descricao'>
               <b>{parking.descricao}</b>             
