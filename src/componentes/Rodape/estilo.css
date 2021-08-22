@@ -1,6 +1,6 @@
 
 .rodape {
-    background-color:#0077B6;
+    background: linear-gradient(90deg,rgb(11, 188, 241) 0%, rgba(0,119,182,1)100%);
     color: #fff;
     height: auto;
     display: flex;

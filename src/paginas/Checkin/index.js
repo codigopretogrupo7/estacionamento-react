@@ -1,10 +1,11 @@
-import React,{useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import { Redirect } from 'react-router';
 import {
 	Button,
 	Grid,
 	FormControl,
 	InputLabel,
+	InputAdornment,
 	Input,
 } from '@material-ui/core/';
 
@@ -12,6 +13,41 @@ import api from '../../api';
 
 export default function Checkin(props) {
 	const [redirect, setRedirect] = useState(false);
+	const [nomeUsuario, setNomeUsuario] = useState('');
+	const [sobrenome, setSobrenome] = useState('');
+	const [telefone, setTelefone] = useState('');
+	const [cnh, setCnh] = useState('');
+	const [modelo, setModelo] = useState('');
+	const [cor, setCor] = useState('');
+	const [placa, setPlaca] = useState('');
+	const [idVeiculo, setIdVeiculo] = useState('')
+	const [Ativado, setAtivado] = useState(false);
+
+
+	useEffect(() => {
+		async function pegaDadosDeQuemEstaNaVaga() {
+			try {
+				const { data } = await api.get(
+					`/api/vagas/listid?id=${props.match.params.id}`
+				);
+
+				if (data.veiculo) {
+					setModelo(data.veiculo.modelo);
+					setCor(data.veiculo.cor);
+					setPlaca(data.veiculo.placa);
+					setIdVeiculo(data.veiculo.id)
+					setCnh(data.veiculo.usuario.cnh);
+					setNomeUsuario(data.veiculo.usuario.nome);
+					setSobrenome(data.veiculo.usuario.sobrenome);
+					setTelefone(data.veiculo.usuario.telefone);
+					setAtivado(true);
+				}
+			} catch (e) {
+				console.log(e);
+			}
+		}
+		pegaDadosDeQuemEstaNaVaga();
+	}, [props.match.params.id]);
 
 	async function InsereUsuario(event) {
 		event.preventDefault();
@@ -25,7 +61,7 @@ export default function Checkin(props) {
 			veiculo: [],
 			estacionamentos: [],
 		};
-		try{
+		try {
 			const user = await api.post('/api/usuarios/add', dados);
 			await cadastraVeiculo(
 				user.data.id,
@@ -33,9 +69,8 @@ export default function Checkin(props) {
 				event.target.cor.value,
 				event.target.placa.value
 			);
-
-		}catch(e){
-			console.log(e)
+		} catch (e) {
+			console.log(e);
 		}
 	}
 
@@ -48,33 +83,46 @@ export default function Checkin(props) {
 				id: idUser,
 			},
 		};
-		try{
+		try {
 			const veiculo = await api.post('/api/veiculos/add', dados);
 			Check(veiculo.data.id);
-
-		}catch(e){
-			console.log(e)
+		} catch (e) {
+			console.log(e);
 		}
 	}
 
 	async function Check(id) {
-		try{
+		try {
 			await api.post(
 				`/api/vagas/insertveiculo?id=${props.match.params.id}&situacao=ocupada`,
 				{ id: id }
 			);
 			setRedirect(true);
-
-		}catch(e){
-			console.log(e)
+		} catch (e) {
+			console.log(e);
 		}
 	}
+	
+	async function Checks(event) {
+		event.preventDefault()
+		setAtivado(false)
+		try {
+			await api.post(
+				`/api/vagas/insertveiculo?id=${props.match.params.id}&situacao=ocupada`,
+				{ id: idVeiculo }
+			);
+			setRedirect(true);
+		} catch (e) {
+			console.log(e);
+		}
+	}
+	
 
 	if (redirect) {
-	return	<Redirect to='/vagas' />;
+		return <Redirect to='/vagas' />;
 	} else {
 		return (
-			<div>
+			<div style={{display:"flex", justifyContent:"center", marginTop:"25px"}}>
 				<form
 					style={{
 						width: '600px',
@@ -82,54 +130,114 @@ export default function Checkin(props) {
 						background: '#fff',
 						padding: '15px',
 					}}
-					onSubmit={InsereUsuario}
+					onSubmit={Ativado ? Checks : InsereUsuario}
 				>
 					<Grid container spacing={6}>
 						<Grid item xs={12} md={3}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='nome'>Nome</InputLabel>
-								<Input id='nome' name='nome' type='text' />
+								<Input
+									id='nome'
+									name='nome'
+									type='text'
+									startAdornment={
+										Ativado ? (
+											<InputAdornment>{nomeUsuario}</InputAdornment>
+										) : (
+											''
+										)
+									}
+									defaultValue={nomeUsuario}
+								/>
 							</FormControl>
 						</Grid>
 
 						<Grid item xs={12} md={3}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='sobrenome'>Sobrenome</InputLabel>
-								<Input id='sobrenome' name='sobrenome' type='text' />
+								<Input
+									id='sobrenome'
+									name='sobrenome'
+									type='text'
+									startAdornment={
+										Ativado ? <InputAdornment>{sobrenome}</InputAdornment> : ''
+									}
+									defaultValue={sobrenome}
+								/>
 							</FormControl>
 						</Grid>
 
 						<Grid item xs={12} md={3}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='telefone'>Telefone</InputLabel>
-								<Input id='telefone' name='telefone' type='text' />
+								<Input
+									id='telefone'
+									name='telefone'
+									type='text'
+									startAdornment={
+										Ativado ? <InputAdornment>{telefone}</InputAdornment> : ''
+									}
+									defaultValue={telefone}
+								/>
 							</FormControl>
 						</Grid>
 						<Grid item xs={12} md={3}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='cnh'>CNH</InputLabel>
-								<Input id='cnh' name='cnh' type='text' />
+								<Input
+									id='cnh'
+									name='cnh'
+									type='text'
+									startAdornment={
+										Ativado ? <InputAdornment>{cnh}</InputAdornment> : ''
+									}
+									defaultValue={cnh}
+								/>
 							</FormControl>
 						</Grid>
 
 						<Grid item xs={12} md={4}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='modelo'>Modelo</InputLabel>
-								<Input id='modelo' name='modelo' type='text' />
+								<Input
+									id='modelo'
+									name='modelo'
+									type='text'
+									startAdornment={
+										Ativado ? <InputAdornment>{modelo}</InputAdornment> : ''
+									}
+									defaultValue={modelo}
+								/>
 							</FormControl>
 						</Grid>
 
 						<Grid item xs={12} md={4}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='cor'>Cor</InputLabel>
-								<Input id='cor' name='cor' type='text' />
+								<Input
+									id='cor'
+									name='cor'
+									type='text'
+									startAdornment={
+										Ativado ? <InputAdornment>{cor}</InputAdornment> : ''
+									}
+									defaultValue={cor}
+								/>
 							</FormControl>
 						</Grid>
 
 						<Grid item xs={12} md={4}>
 							<FormControl fullWidth>
 								<InputLabel htmlFor='placa'>Placa</InputLabel>
-								<Input id='placa' name='placa' type='text' />
+								<Input
+									id='placa'
+									name='placa'
+									type='text'
+									startAdornment={
+										Ativado ? <InputAdornment>{placa}</InputAdornment> : ''
+									}
+									defaultValue={placa}
+								/>
 							</FormControl>
 						</Grid>
 						<Grid

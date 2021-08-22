@@ -32,9 +32,9 @@ function AuthProvider({ children }) {
 
 	}
 
-	async function handleLogin(email, senha) {
+	async function handleLogin(nome, senha) {
 		const usuario = {
-			nome: email,
+			nome: nome,
 			senha: senha,
 		};
 		try{
@@ -47,8 +47,9 @@ function AuthProvider({ children }) {
 		}catch(e){
 			console.log(e)
 		}
-		
 	}
+
+
 
 	async function pegaDadosDoUsuario(result, token){
 
