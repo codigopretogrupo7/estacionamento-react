@@ -98,10 +98,12 @@ export default function CadastroEstacionamento(){
 				"id": id
 			}
     }
-		
-    await api.post("/api/estacionamentos/add",dados)
-
-    alert('Formulario Enviado, aguarde nosso email de confirmação!')
+		try{
+			await api.post("/api/estacionamentos/add",dados)
+			alert('Formulario Enviado, aguarde nosso email de confirmação!')
+		}catch(e){
+			console.log(e)
+		}
   }
 
   function comparaSenha(event){

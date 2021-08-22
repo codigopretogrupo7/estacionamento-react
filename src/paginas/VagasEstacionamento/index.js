@@ -16,7 +16,7 @@ export default function VagasEstacionamento() {
 			setTimeout( () => {
 				pegaVagas()
 				pegaVagasLivres()
-			},100)
+			},1500)
 			setNum(1)
 		}else{
 			setTimeout( () => {
@@ -27,13 +27,21 @@ export default function VagasEstacionamento() {
 	},[num, vagas]);
 	
 	async function pegaVagas(){
-		const {data} = await api.get(`/api/vagas/listvaga?id=4`)
-		setVagas(data)
+		try{
+			const {data} = await api.get(`/api/vagas/listvaga?id=2`)
+			setVagas(data)
+		}catch(e){
+			console.log(e)
+		}
 	}
 
 	async function pegaVagasLivres(){
-		const {data} = await api.get(`/api/vagas/vagaslivres?id=4`)
-		setVagasLivres(data)
+		try{
+			const {data} = await api.get(`/api/vagas/vagaslivres?id=2`)
+			setVagasLivres(data)
+		}catch(e){
+			console.log(e)
+		}
 	}
 
 	return (

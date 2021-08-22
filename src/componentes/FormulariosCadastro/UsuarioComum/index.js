@@ -42,10 +42,12 @@ export default function CadastroUsuario() {
 			veiculo: [],
 			estacionamentos: [],
 		};
-
-		await api.post('/api/usuarios/add', dados);
-
-		alert('Cadastro concluido');
+		try{
+			await api.post('/api/usuarios/add', dados);
+			alert('Cadastro concluido');
+		}catch(e){
+			console.log(e)
+		}
 	}
 
 	function comparaSenha(event) {

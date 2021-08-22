@@ -17,13 +17,19 @@ function AuthProvider({ children }) {
 
 	async function doEffect(info){
 		const result = JSON.parse(atob(info.split('.')[1]));
-		const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
-		api.defaults.headers.Authorization = `${info}`;
-		setAuthenticated(true);
-		setMode(data.mode);
+		try{
+			const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
+			api.defaults.headers.Authorization = `${info}`;
+			setAuthenticated(true);
+			setMode(data.mode);
+	
+			setNome(data.nome);
+			setId(data.id)
 
-		setNome(data.nome);
-		setId(data.id)
+		}catch(e){
+			console.log(e)
+		}
+
 	}
 
 	async function handleLogin(email, senha) {
@@ -31,36 +37,48 @@ function AuthProvider({ children }) {
 			nome: email,
 			senha: senha,
 		};
-		const datas = await api.post('/login', usuario);
-		const token = datas.headers.token
-		const result = JSON.parse(atob(token.split('.')[1]));
+		try{
+			const datas = await api.post('/login', usuario);
+			const token = datas.headers.token
+			const result = JSON.parse(atob(token.split('.')[1]));
+	
+			pegaDadosDoUsuario(result, token)
 
-		pegaDadosDoUsuario(result, token)
+		}catch(e){
+			console.log(e)
+		}
 		
 	}
 
 	async function pegaDadosDoUsuario(result, token){
-		const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
-		const dados = JSON.stringify(data);
 
-		if (dados.length > 0) {
-			localStorage.setItem('data', token);
-
-
-			api.defaults.headers.Authorization = `${token}`;
-
+		try{
+			const {data} = await api.get(`/api/usuarios/list/name?username=${result.sub}`)
+			const dados = JSON.stringify(data);
+	
+			if (dados.length > 0) {
+				localStorage.setItem('data', token);
+	
+	
+				api.defaults.headers.Authorization = `${token}`;
+	
+				
+				setAuthenticated(true);
+				setMode(data.mode);
+				setNome(data.nome);
+				setId(data.id);
+	
+				await localStorage.setItem('mode',data.mode)
+				await localStorage.setItem('Authenticated',true)
+	
+			} else {
+				return;
+			}
 			
-			setAuthenticated(true);
-			setMode(data.mode);
-			setNome(data.nome);
-			setId(data.id);
-
-			await localStorage.setItem('mode',data.mode)
-			await localStorage.setItem('Authenticated',true)
-
-		} else {
-			return;
+		}catch(e){
+			console.log(e)
 		}
+
 	}
 
 	async function handleLogout() {

@@ -25,13 +25,18 @@ export default function Checkin(props) {
 			veiculo: [],
 			estacionamentos: [],
 		};
-		const user = await api.post('/api/usuarios/add', dados);
-		await cadastraVeiculo(
-			user.data.id,
-			event.target.modelo.value,
-			event.target.cor.value,
-			event.target.placa.value
-		);
+		try{
+			const user = await api.post('/api/usuarios/add', dados);
+			await cadastraVeiculo(
+				user.data.id,
+				event.target.modelo.value,
+				event.target.cor.value,
+				event.target.placa.value
+			);
+
+		}catch(e){
+			console.log(e)
+		}
 	}
 
 	async function cadastraVeiculo(idUser, modelo, cor, placa) {
@@ -43,16 +48,26 @@ export default function Checkin(props) {
 				id: idUser,
 			},
 		};
-		const veiculo = await api.post('/api/veiculos/add', dados);
-		Check(veiculo.data.id);
+		try{
+			const veiculo = await api.post('/api/veiculos/add', dados);
+			Check(veiculo.data.id);
+
+		}catch(e){
+			console.log(e)
+		}
 	}
 
 	async function Check(id) {
-		await api.post(
-			`/api/vagas/insertveiculo?id=${props.match.params.id}&situacao=ocupada`,
-			{ id: id }
-		);
-		setRedirect(true);
+		try{
+			await api.post(
+				`/api/vagas/insertveiculo?id=${props.match.params.id}&situacao=ocupada`,
+				{ id: id }
+			);
+			setRedirect(true);
+
+		}catch(e){
+			console.log(e)
+		}
 	}
 
 	if (redirect) {

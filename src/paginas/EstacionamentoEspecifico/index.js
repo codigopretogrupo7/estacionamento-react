@@ -11,8 +11,12 @@ export default function EstacionamentoEspecifico(props) {
 
 	useEffect(() => {	
 		async function pegaEstacionamento() {
-			const { data } = await api.get(url);
-			setEstacionamento(data)
+			try{
+				const { data } = await api.get(url);
+				setEstacionamento(data)
+			}catch(e){
+				console.log(e)
+			}
 		}
 		pegaEstacionamento()
 	}, [url]);

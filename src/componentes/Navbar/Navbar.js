@@ -43,7 +43,7 @@ export default function Navbar() {
 			</div>
 			<ul className={clicked ? 'nav-menu active' : 'nav-menu'}>
 				<li>
-					<Link className='nav-links' to={'/'} onClick={handleClick}>
+					<Link className='nav-links' to={'/'}>
 						Home
 					</Link>
 				</li>
@@ -87,8 +87,9 @@ export default function Navbar() {
 								open={Boolean(anchorEl)}
 								onClose={handleClose}
 							>
-								<MenuItem onClick={handleClose}>+ Veiculo</MenuItem>
-								<MenuItem onClick={handleClose}>Editar</MenuItem>
+								<Link to="/veiculoscadastrados">
+									<MenuItem onClick={handleClose}>Veiculos</MenuItem>
+								</Link>
 								<MenuItem onClick={handleLogout}>
 									<Link to='/'>
 										<span>Sair</span>

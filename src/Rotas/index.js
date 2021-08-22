@@ -9,13 +9,11 @@ import CadastroVeiculo from '../componentes/FormulariosCadastro/Veiculo/index';
 import VagasEstacionamento from '../paginas/VagasEstacionamento/';
 import Cadastro from '../paginas/Cadastro';
 import PagesParkingSearch from '../paginas/Search/Search';
-// import Estacionamentos from '../paginas/Estacionamentos';
 import EstacionamentoEspecifico from '../paginas/EstacionamentoEspecifico';
 import Checkin from '../paginas/Checkin';
-
-// import Checkout from '../paginas/Checkout'
-
+import Checkout from '../paginas/Checkout'
 import Navbar from '../componentes/Navbar/Navbar';
+import VeiculosCadastrados from '../paginas/VeiculosCadastrados';
 
 const Rotas = () => (
 	<>
@@ -30,7 +28,6 @@ const Rotas = () => (
 				/>
 				<Route exact path='/contato' component={Contato} />
 				<Route exact path='/Login' component={Login} />
-				{/* <Route exact path='/Search' component={ PagesParkingSearch } /> */}
 				<Route exact path='/Cadastro' component={Cadastro} />
 				<Route
 					exact
@@ -45,7 +42,8 @@ const Rotas = () => (
 				/>
 				<Route exact path='/Checkin:id' component={Checkin} />
 				<Route exact path='/CadastroVeiculo' component={CadastroVeiculo} />
-				{/* <Route exact path='/Checkout' component={ Checkout } /> */}
+				<Route exact path='/Checkout:id' component={ Checkout } />
+				<Route exact path='/veiculoscadastrados' component={VeiculosCadastrados} />
 			</Switch>
 		</BrowserRouter>
 	</>

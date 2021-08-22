@@ -48,26 +48,30 @@ export default function Vaga(props) {
 						display='flex'
 						justifyContent='center'
 						alignItems='center'
-						mt={props.status === "vazia" || props.status === "reservada" ? 0 : -2}
+						mt={
+							props.status === 'vazia' || props.status === 'reservada' ? 0 : -2
+						}
 					>
 						<CardActions>
-							{props.status === "vazia" || props.status === "reservada" ? (
+							{props.status === 'vazia' || props.status === 'reservada' ? (
 								<>
-								<Link to={{pathname:`/Checkin${props.idVaga	}`}}>
-									<Checkins
-										color='primary'
-										fontSize='large'
-										style={{ cursor: 'pointer' }}
+									<Link to={{ pathname: `/Checkin${props.idVaga}` }}>
+										<Checkins
+											color='primary'
+											fontSize='large'
+											style={{ cursor: 'pointer' }}
 										/>
-								</Link>
+									</Link>
 								</>
 							) : (
 								<>
-									<Checkout
-										style={{  cursor: 'pointer' }}
-										color='secondary'
-										fontSize='large'
-									/>
+									<Link to={{ pathname: `/Checkout${props.idVaga}` }}>
+										<Checkout
+											style={{ cursor: 'pointer' }}
+											color='secondary'
+											fontSize='large'
+										/>
+									</Link>
 								</>
 							)}
 						</CardActions>

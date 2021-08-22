@@ -4,6 +4,9 @@ import './estilo.css';
 
 
   const Card = (props) => {
+
+  const diaria = props.diaria
+
   return (
     <div className='card' >
         <img className="img-estacionamentocard"  src={props.imagem} alt={props.estacionamento}/>
@@ -16,7 +19,7 @@ import './estilo.css';
               <span>{props.bairro} - {props.cidade}</span>
             </div>
             <div className='valor'>
-              <span>Diaria R${props.diaria}</span>
+              <span>Diaria {diaria.toLocaleString('pt-br',{style: 'currency', currency: 'BRL'})}</span>
             </div>
             <div className='descricao'>
               <b>{props.descricao}</b>             
