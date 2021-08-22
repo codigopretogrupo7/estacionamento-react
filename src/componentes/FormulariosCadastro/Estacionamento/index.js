@@ -21,6 +21,7 @@ import './estilo.css';
 import api from '../../../api'
 
 
+
 export default function CadastroEstacionamento(){
 
   const [ estado, setEstado ]     = useState('')
@@ -64,18 +65,26 @@ export default function CadastroEstacionamento(){
       setAtivado(false)
     }
   }
-
+  
+  const onchangeFoto = (event) => {
+	const file = event.target.files
+	let reader = new FileReader()
+	reader.readAsDataURL(file[0])
+	reader.onload = (event) => {
+		let item = event.target.result
+		console.log('foto', event.target.result)
+		localStorage.setItem('foto', item)
+	}
+}
 
   async function enviarFormulario(event){
     event.preventDefault()
 
-    let arquivo = event.target.foto[0]
-		let encoded = btoa(arquivo)
     
     const dados = {
 			nomeEstacionamento: event.target.nomeDoEstacionamento.value,
 			telefone: event.target.telefone.value,
-			foto: encoded,
+			foto: localStorage.getItem("foto"),
 			cep: event.target.cep.value,
 			estado: estado,
 			cidade: cidade,
@@ -170,8 +179,7 @@ export default function CadastroEstacionamento(){
 								</Grid>
 								<Grid item xs={12} md={4}>
 									<FormControl fullWidth>
-										<p>Imagem do estacionamento</p>
-										<input id='foto' name='foto' type='file' accept='image/*' />
+									<Input required type='file' accept="image/png,image/jpeg" placeholder='Insirasuafoto' name='foto' id='foto' type="file" onChange={(event)=>onchangeFoto(event)}> </Input>
 									</FormControl>
 								</Grid>
 							</>
