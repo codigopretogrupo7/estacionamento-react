@@ -9,11 +9,14 @@ function AuthEstacionamento({ children }) {
 	const [redirect, setRedirect] = useState(false)
 
   useEffect(() => {
-		const infos = localStorage.getItem('datas');
+		const id = localStorage.getItem('id');
+	  const mode = localStorage.getItem("mode");
+	  const nomeEstacionamento = localStorage.getItem("nomeEstacionamento");
+	  
     if(infos){
-      setMode(infos.mode);	
-      setId(infos.id)
-      setNomeEstacionamento(infos.nomeEstacionamento)
+      setMode(mode);	
+      setId(id)
+      setNomeEstacionamento(nomeEstacionamento)
     }
 	}, [id,mode]);
 
@@ -30,7 +33,7 @@ function AuthEstacionamento({ children }) {
       setMode(data.mode)
       setNomeEstacionamento(data.nomeEstacionamento)
 
-		localStorage.setItem('datas',data);
+		
 		await localStorage.setItem('id',data.id);
 		await localStorage.setItem('mode',data.mode);
 		await localStorage.setItem('nomeEstacionamento',data.nomeEstacionamento);
@@ -42,7 +45,7 @@ function AuthEstacionamento({ children }) {
 	}
 
   async function Logout() {
-		localStorage.removeItem('datas');
+		
 		localStorage.removeItem('id');
 		localStorage.removeItem('mode');
 		localStorage.removeItem('nomeEstacionamento');
