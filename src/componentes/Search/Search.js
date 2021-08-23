@@ -21,7 +21,7 @@ const ParkingSearch = () => {
 	return (
 		<div className='parking-search'>
 			<header className='parking-search__header'>
-				<h1>Estacionamentos Parceiros</h1>
+				<h1>Estacionamentos Parceiross</h1>
 			</header>
 
 			<ParkingList parkings={parkings} loading={!parkings.length} />
