@@ -36,10 +36,11 @@ export default function Checkin(props) {
 					setCor(data.veiculo.cor);
 					setPlaca(data.veiculo.placa);
 					setIdVeiculo(data.veiculo.id)
-					setCnh(data.veiculo.usuario.cnh);
-					setNomeUsuario(data.veiculo.usuario.nome);
-					setSobrenome(data.veiculo.usuario.sobrenome);
-					setTelefone(data.veiculo.usuario.telefone);
+					const dados = await api.get(`/api/usuarios/list/id?id=${data.veiculo.usuario}`)
+					setCnh(dados.data.cnh);
+					setNomeUsuario(dados.data.nome);
+					setSobrenome(dados.data.sobrenome);
+					setTelefone(dados.data.telefone);
 					setAtivado(true);
 				}
 			} catch (e) {
