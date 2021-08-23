@@ -1,7 +1,7 @@
 import axios from 'axios'
 
 export default axios.create({
-  baseURL: 'https://34.95.32.15:8080'
+  baseURL: 'https://lit-oasis-84822.herokuapp.com/'
 })
 
 
