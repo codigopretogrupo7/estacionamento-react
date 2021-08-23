@@ -27,7 +27,7 @@ const Login = () => {
 						<div className='Login-loginInputEmail'>
 							<input
 								type='email'
-								placeholder='Digite seu nome de usuario'
+								placeholder='Digite seu nome'
 								value={email}
 								onChange={(e) => setEmail(e.target.value)}
 							/>
@@ -53,6 +53,9 @@ const Login = () => {
 						</button>
 						<div className='footerLogin'>
 							Não tem uma conta? <Link to='/Cadastro'>Registre-se</Link>
+						</div>
+						<div className='footerLogin' style={{marginTop:"20px"}}>
+						<Link to='/loginestacionamento' >Login Estacionamento </Link>
 						</div>
 					</div>
 				</div>
