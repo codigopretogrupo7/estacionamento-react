@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { Redirect } from 'react-router';
+
 import Rodape from '../../Rodape';
 import {
 	Container,
@@ -22,6 +24,7 @@ import api from '../../../api';
 export default function CadastroUsuario() {
 	const [senha, setSenha] = useState('');
 	const [enviar, setEnviar] = useState(false);
+	const [redirect, setRedirect] = useState(false);
 
 	const [values, setValues] = React.useState({
 		password: '',
@@ -44,6 +47,8 @@ export default function CadastroUsuario() {
 		};
 		try{
 			await api.post('/api/usuarios/add', dados);
+			setRedirect(true)
+
 			alert('Cadastro concluido');
 		}catch(e){
 			console.log(e)
@@ -74,6 +79,9 @@ export default function CadastroUsuario() {
 		event.preventDefault();
 	};
 
+	if (redirect) {
+		return <Redirect to='/' />;
+	} else {
 	return (
 		<div className='tamanho'>
 			<Container fixed style={{ textAlign: 'left' }}>
@@ -231,4 +239,5 @@ export default function CadastroUsuario() {
 			<Rodape />
 		</div>
 	);
+}
 }

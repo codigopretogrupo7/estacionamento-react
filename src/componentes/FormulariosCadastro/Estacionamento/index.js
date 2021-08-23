@@ -1,5 +1,7 @@
 import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { Redirect } from 'react-router';
+
 import { Context } from '../../../Context/AuthContext';
 import {
 	Container,
@@ -30,6 +32,7 @@ export default function CadastroEstacionamento() {
 	const [Ativado, setAtivado] = useState(false);
 	const { id } = useContext(Context);
 	const { authenticated } = useContext(Context);
+	const [redirect, setRedirect] = useState(false);
 
 	const [values, setValues] = React.useState({
 		password: '',
@@ -104,7 +107,10 @@ export default function CadastroEstacionamento() {
 		};
 		try {
 			await api.post('/api/estacionamentos/add', dados);
+			setRedirect(true)
+
 			alert('Formulario Enviado, aguarde nosso email de confirmação!');
+
 		} catch (e) {
 			console.log(e);
 		}
@@ -133,6 +139,10 @@ export default function CadastroEstacionamento() {
 	const handleMouseDownPassword = (event) => {
 		event.preventDefault();
 	};
+
+	if (redirect) {
+		return <Redirect to='/' />;
+	} else {
 
 	if (authenticated) {
 		return (
@@ -486,4 +496,5 @@ export default function CadastroEstacionamento() {
 			</div>
 		);
 	}
+}
 }
